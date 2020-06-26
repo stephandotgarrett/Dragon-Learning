@@ -1,2 +1,9 @@
 /*   CSS page styling will go here!   */
 
+.difficultyButton {
+  color : blue;
+}
+
+.difficultyButtonSelected {
+  color: red;
+}
