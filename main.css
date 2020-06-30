@@ -1,9 +1,46 @@
 /*   CSS page styling will go here!   */
 
-.difficultyButton {
+/* .difficultyButton {
   color : blue;
 }
 
 .difficultyButtonSelected {
   color: red;
+} */
+.difficultyButton {
+  border: none;
+  outline: none;
+  padding: 10px 16px;
+  background-color: #f1f1f1;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.active, .difficultyButton:hover {
+  background-color: #666;
+  color: white;
+}
+
+#container {
+  padding-top: 100px;
+   padding-left: 10%;
+   padding-right: 10%;
+   background:
+       radial-gradient(
+         rgba(35,37,38, 0.45),
+         rgba(65,67,68, 0.45)
+     ), url("background-dragon.jpg") no-repeat center center;
+   background-size: cover;
+   color: white;
+   height: 100vh;
+   box-shadow: inset 0px 0px 20px 0px rgba(0,0,0,1);
+}
+
+.center {
+  margin: auto;
+  width: 50%;
+  border: 3px solid green;
+  padding: 10px;
+  text-align: center;
+
 }

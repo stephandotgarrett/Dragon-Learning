@@ -9,11 +9,11 @@
     <link rel="stylesheet" href="main.css">
   </head>
   <header>
-    
+
   </header>
 
   <body class="container-fluid">
-    <header class="w3-panel w3-center w3-opacity" style="padding:128px 16px">
+    <header class="w3-panel w3-center w3-opacity" style="padding:12px 16px">
       <h1 class="display-1 text-center">Addition</h1>
       <p class="lead text-center">Practice your addition skills to earn dragons!</p>
       <div class="w3-padding-32">
@@ -28,33 +28,31 @@
     </header>
     <div>
       <div>
-        
-        <div>
+
+        <div  class="center">
           <p>Select addition or subtraction</p>
           <menu id='operatorSelection'>
             <input id='addition' type='button' value='Addition'>
             <input id='subtraction' type='button' value='Subtraction'>
           </menu>
         </div>
-        
-        <div>
+
+        <div id="difficultySelection" class="center">
           <p>Select difficulty</p>
-          <menu id='difficultySelection'>
-            <input id='singleDigitMath' type='button' value='Single Digit' class='difficultyButton' onclick='buttonChange()'>
-            <input id='doubleDigitMath' type='button' value='Double Digit' class='difficultyButton'>
-            <input id='tripleDigitMath' type='button' value='Triple Digit' class='difficultyButton'>
-          </menu>
+          <button id='singleDigitMath' class='difficultyButton active'>Single Digit</button>
+          <button id='doubleDigitMath' class='difficultyButton'>Double Digit</button>
+          <button id='tripleDigitMath' class='difficultyButton'>Triple Digit</button>
         </div>
-        
+
       </div>
-      
-      <div id="addContainer" class='w3-conatiner'>
-        <h2 id="num1" class="add w3-container w3-red w3-cell w3-mobile"></h2>
-        <h2 class="add w3-container w3-red w3-cell w3-mobile">+</h2>
-        <h2 id="num2" class="add w3-container w3-red w3-cell w3-mobile"></h2>
-        <h2 class="add w3-container w3-red w3-cell w3-mobile">=</h2>
-        <input type="number" class="add w3-container w3-red w3-cell w3-mobile" id="answer">
-        <button type="button" id="go" onclick="getInputValue();">Go</button>
+
+      <div id="addContainer" class='w3-conatiner center'>
+          <h2 id="num1" class="w3-container w3-red w3-cell w3-mobile"></h2>
+          <h2 class="add w3-container w3-red w3-cell w3-mobile">+</h2>
+          <h2 id="num2" class="add w3-container w3-red w3-cell w3-mobile"></h2>
+          <h2 class="add w3-container w3-red w3-cell w3-mobile">=</h2>
+          <input type="number" class="add w3-container w3-red w3-cell w3-mobile" id="answer">
+          <button type="button" id="go" onclick="getInputValue();">Go</button>
       </div>
       <div id="response"></div>
     </div>
