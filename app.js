@@ -1,16 +1,18 @@
 //javascript will go here!
-onst num1 = document.getElementById('num1');
+const num1 = document.getElementById('num1');
 const num2 = document.getElementById('num2');
 const input = document.getElementById('answer');
 const ans = document.getElementById('answer').value;
 const response = document.getElementById('response');
-var difficulty = null;
+
+
+var difficulty = 5;
 let numOne = Math.round(Math.random()*difficulty);
 let numTwo = Math.round(Math.random()*difficulty);
 // let startSelection = document.getElementById('singleDigitMath');
 // startSelection.classList += " active";
 
-//Button Managment
+/////    Button Managment    /////
 
 // Add active class to the current button (highlight it)
 var difficultySelectionDiv = document.getElementById("difficultySelection");
@@ -21,16 +23,14 @@ for (var i = 0; i < btns.length; i++) {
     var current = document.getElementsByClassName("active");
     current[0].className = current[0].className.replace(" active", "");
     this.className += " active";
-
+    if (this.classList) {}
   });
 }
 
 
 
 //Addition Scripts
-c
 const answer = numOne + numTwo;
-
 
 num1.innerHTML = numOne;
 num2.innerHTML = numTwo;
