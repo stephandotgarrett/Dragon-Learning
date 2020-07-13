@@ -1,3 +1,43 @@
+var players = [
+  {name: 'Stephan',
+  mathPoints: 10,
+  mLPoints: 110,
+  sWPoints: 10},
+  {name: 'Joe',
+  mathPoints: 20,
+  mLPoints: 220,
+  sWPoints: 20}
+]
+
+window.localStorage.setItem('player1', JSON.stringify(players[0]));
+window.localStorage.setItem('player2', JSON.stringify(players[1]));
+
+var player1 = JSON.parse(window.localStorage.getItem('player1'));
+var player2 = JSON.parse(window.localStorage.getItem('player2'));
+
+console.log(player1);
+console.log(player2);
+
+
+window.localStorage.setItem('player1', JSON.stringify(players[0]));
+var player1 = JSON.parse(window.localStorage.getItem('player1'));
+
+console.log(player1);
+
+function updateMathScore (name){
+  for (var i = 0; i < players.length; i++){
+    if (name === players[i].name){
+      players[i].mathPoints += 10;
+      window.localStorage.setItem('player1', JSON.stringify(players[i]));
+      player1 = JSON.parse(window.localStorage.getItem('player1'));
+      console.log(player1);
+    }
+  }
+}
+updateMathScore('Stephan');
+
+
+
 const mathBtn = document.getElementById('mathBtn');
 const mathContainer = document.getElementById('mathContainer');
 
@@ -45,7 +85,5 @@ for (var i = 0; i < widgetBtns.length; i++) {
     var current = widgetControl.getElementsByClassName("active");
     current[0].className = current[0].className.replace(" active", "");
     this.className += " active";
-    console.log(this);
   });
 }
-console.log(widgetBtns);
