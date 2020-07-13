@@ -16,14 +16,14 @@
   <div id="widgetSpace" class="d-flex justify-content-center">
     
     <div class="d-inline-flex">
-      <div class="d-flex flex-column">
-        <button class="btn btn-primary btn-md m-3">Math</button>
-        <button class="btn btn-primary btn-md m-3">Missing Letter</button>
-        <button class="btn btn-primary btn-md m-3">Sight Words</button>
+      <div id="widgetControl" class="d-flex flex-column">
+        <button id="mathBtn" class="btn btn-primary btn-md m-3 active">Math</button>
+        <button id="missingLetterBtn" class="btn btn-primary btn-md m-3">Missing Letter</button>
+        <button id="sightWordsBtn" class="btn btn-primary btn-md m-3">Sight Words</button>
       </div>
     </div>
     
-    <div id="mathContainer" class="d-inline-flex justify-content-center">
+    <div id="mathContainer" class="d-none justify-content-center">
 
       <div>
         <div id="operatorDiv" class="d-flex justify-content-center">
@@ -79,6 +79,9 @@
         </div>
         
       </div>
+      
+      <div id="missingLetterDiv">Missing Letter</div>
+      <div id="sightWordsDiv">Sight Words</div>
     </div>
     
     
@@ -89,6 +92,7 @@
 
   
   <script src="maths.js"></script>
+  <script src="scripts.js"></script>
 
 </body>
 </html>
