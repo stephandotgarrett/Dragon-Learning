@@ -1,50 +1,50 @@
-function Player (name, mathPoints, mLPoints, sWPoints) {
-  this.name = name;
-  this.mathPoints = mathPoints;
-  this.mLPoints = mLPoints;
-  this.sWPoints = sWPoints;
-}
-
-var players = [
-  {name: 'Stephan',
-  mathPoints: 10,
-  mLPoints: 110,
-  sWPoints: 10},
-  {name: 'Joe',
-  mathPoints: 20,
-  mLPoints: 220,
-  sWPoints: 20}
-]
-
-var John = new Player('John', 0, 0, 0);
-players.push(John);
-console.log(players[2]);
-
-
-window.localStorage.setItem('player3', JSON.stringify(players[2]));
-var player3 = JSON.parse(window.localStorage.getItem('player3'));
-
-console.log(player3);
-
-window.localStorage.setItem('player1', JSON.stringify(players[0]));
-var player1 = JSON.parse(window.localStorage.getItem('player1'));
-
-window.localStorage.setItem('player2', JSON.stringify(players[1]));
-var player2 = JSON.parse(window.localStorage.getItem('player2'));
-
-
-function updateMathScore (name){
-  for (var i = 0; i < players.length; i++){
-    if (name === players[i].name){
-      players[i].mathPoints += 10;
-      window.localStorage.setItem('player1', JSON.stringify(players[i]));
-      player1 = JSON.parse(window.localStorage.getItem('player1'));
-//      console.log(player1);
-    }
-  }
-}
-updateMathScore('Stephan');
-
+//function Player (name, mathPoints, mLPoints, sWPoints) {
+//  this.name = name;
+//  this.mathPoints = mathPoints;
+//  this.mLPoints = mLPoints;
+//  this.sWPoints = sWPoints;
+//}
+//
+//var players = [
+//  {name: 'Stephan',
+//  mathPoints: 10,
+//  mLPoints: 110,
+//  sWPoints: 10},
+//  {name: 'Joe',
+//  mathPoints: 20,
+//  mLPoints: 220,
+//  sWPoints: 20}
+//]
+//
+//var John = new Player('John', 0, 0, 0);
+//players.push(John);
+//console.log(players[2]);
+//
+//
+//window.localStorage.setItem('player3', JSON.stringify(players[2]));
+//var player3 = JSON.parse(window.localStorage.getItem('player3'));
+//
+//console.log(player3);
+//
+//window.localStorage.setItem('player1', JSON.stringify(players[0]));
+//var player1 = JSON.parse(window.localStorage.getItem('player1'));
+//
+//window.localStorage.setItem('player2', JSON.stringify(players[1]));
+//var player2 = JSON.parse(window.localStorage.getItem('player2'));
+//
+//
+//function updateMathScore (name){
+//  for (var i = 0; i < players.length; i++){
+//    if (name === players[i].name){
+//      players[i].mathPoints += 10;
+//      window.localStorage.setItem('player1', JSON.stringify(players[i]));
+//      player1 = JSON.parse(window.localStorage.getItem('player1'));
+////      console.log(player1);
+//    }
+//  }
+//}
+//updateMathScore('Stephan');
+//
 
 
 const mathBtn = document.getElementById('mathBtn');
