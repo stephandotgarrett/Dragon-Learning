@@ -10,13 +10,14 @@ let solution;
 let activeOp;
 let activeDiff;
 
-//// Show and hide anser response
+//// Show and hide anwser response
 const correctModal = document.getElementById('correctModal');
 const incorrectModal = document.getElementById('incorrectModal');
 const correctContinueButton = document.getElementById('correctContinueButton');
 const incorrectContinueButton = document.getElementById('incorrectContinueButton');
 const overlay = document.getElementById('overlay');
-
+const correctResponse = document.getElementById('correctResponse');
+const incorrectResponse = document.getElementById('incorrectResponse');
 
 function showModal(modal) {
   modal.classList.add('active');
@@ -132,14 +133,25 @@ for (var i = 0; i < btns.length; i++) {
 
 // Checks answer against solution onclick of go button
 goBtn.addEventListener("click", function (){
-if (ans.value === solution.toString()){
-  showModal(correctModal);
-  correctContinueButton.focus();
-  setPageState(operatorBtns, difficultyBtns);
-} else {
-  showModal(incorrectModal);
-  incorrectContinueButton.focus();
-  ans.value ='';
+  //introduce regex for number validation
+  var ansREGX = /^[0-9]+$/;
+  if(ansREGX.test(ans.value)){
+    if (ans.value === solution.toString()){
+      correctResponse.innerHTML = "Good job!";
+      showModal(correctModal);
+      correctContinueButton.focus();
+      setPageState(operatorBtns, difficultyBtns);
+    } else {
+      incorrectResponse.innerHTML = "Try again!";
+      showModal(incorrectModal);
+      incorrectContinueButton.focus();
+      ans.value ='';
+      }
+  } else {
+      incorrectResponse.innerHTML = "Numbers only here!";
+      showModal(incorrectModal);
+      incorrectContinueButton.focus();
+      ans.value ='';
   }
 })
 

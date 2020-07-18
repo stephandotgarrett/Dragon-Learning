@@ -1,3 +1,5 @@
+
+
 //function Player (name, mathPoints, mLPoints, sWPoints) {
 //  this.name = name;
 //  this.mathPoints = mathPoints;
@@ -46,6 +48,8 @@
 //updateMathScore('Stephan');
 //
 
+const start = document.getElementById('start');
+const homeBtn = document.getElementById('homeBtn');
 
 const mathBtn = document.getElementById('mathBtn');
 const mathContainer = document.getElementById('mathContainer');
@@ -59,40 +63,112 @@ const sightWordsContainer = document.getElementById('sightWordsDiv');
 const widgetControl = document.getElementById('widgetControl');
 const widgetBtns = widgetControl.getElementsByClassName('btn');
 
-
-//add widget container to group all widgets for a loop to call active
-mathBtn.addEventListener("click", ()=> {
-  mathContainer.classList.remove('d-none');
-  mathContainer.classList.add('d-inline-flex');
-  missingLetterContainer.classList.remove('d-inline-flex');
-  missingLetterContainer.classList.add('d-none');
-  sightWordsContainer.classList.remove('d-inline-flex');
-  sightWordsContainer.classList.add('d-none');
-});
-
-missingLetterBtn.addEventListener("click", ()=> {
-  missingLetterContainer.classList.remove('d-none');
-  missingLetterContainer.classList.add('d-inline-flex');
-  mathContainer.classList.remove('d-inline-flex');
-  mathContainer.classList.add('d-none');
-  sightWordsContainer.classList.remove('d-inline-flex');
-  sightWordsContainer.classList.add('d-none');
-});
-
-sightWordsBtn.addEventListener("click", ()=> {
-  sightWordsBtn.classList.remove('d-none');
-  sightWordsBtn.classList.add('d-inline-flex');
-  mathContainer.classList.remove('d-inline-flex');
-  mathContainer.classList.add('d-none');
-  missingLetterContainer.classList.remove('d-inline-flex');
-  missingLetterContainer.classList.add('d-none');
-});
-
-
+const widgetContainer = document.getElementById('widgetContainer');
+const widgets = widgetContainer.getElementsByClassName('widget');
+//console.log(widgets);
+//console.log(widgetBtns);
+//Repurpose as widget div display selector
 for (var i = 0; i < widgetBtns.length; i++) {
   widgetBtns[i].addEventListener("click", function() {
     var current = widgetControl.getElementsByClassName("active");
     current[0].className = current[0].className.replace(" active", "");
     this.className += " active";
+
+    switch(this.id) {
+      case 'homeBtn':
+        start.classList.remove('d-none');
+        start.classList.add('d-inline-flex');
+        sightWordsContainer.classList.remove('d-inline-flex');
+        sightWordsContainer.classList.add('d-none');
+        mathContainer.classList.remove('d-inline-flex');
+        mathContainer.classList.add('d-none');
+        missingLetterContainer.classList.remove('d-inline-flex');
+        missingLetterContainer.classList.add('d-none');
+        console.log('homeBtn');
+        break;
+      case 'mathBtn':
+        mathContainer.classList.remove('d-none');
+        mathContainer.classList.add('d-inline-flex');
+        missingLetterContainer.classList.remove('d-inline-flex');
+        missingLetterContainer.classList.add('d-none');
+        sightWordsContainer.classList.remove('d-inline-flex');
+        sightWordsContainer.classList.add('d-none');
+        start.classList.remove('d-inline-flex');
+        start.classList.add('d-none');
+        console.log('mathBtn');
+        break;
+      case 'missingLetterBtn':
+        missingLetterContainer.classList.remove('d-none');
+        missingLetterContainer.classList.add('d-inline-flex');
+        mathContainer.classList.remove('d-inline-flex');
+        mathContainer.classList.add('d-none');
+        sightWordsContainer.classList.remove('d-inline-flex');
+        sightWordsContainer.classList.add('d-none');
+        start.classList.remove('d-inline-flex');
+        start.classList.add('d-none');
+        console.log('missingLetterBtn');
+        break;
+      case 'sightWordsBtn':
+        sightWordsContainer.classList.remove('d-none');
+        sightWordsContainer.classList.add('d-inline-flex');
+        mathContainer.classList.remove('d-inline-flex');
+        mathContainer.classList.add('d-none');
+        missingLetterContainer.classList.remove('d-inline-flex');
+        missingLetterContainer.classList.add('d-none');
+        start.classList.remove('d-inline-flex');
+        start.classList.add('d-none');
+        console.log('sightWordsBtn');
+        break;
+    }
   });
 }
+
+
+////add widget container to group all widgets for a loop to call active
+//homeBtn.addEventListener("click", ()=> {
+//  start.classList.remove('d-none');
+//  start.classList.add('d-flex');
+//  sightWordsContainer.classList.remove('d-inline-flex');
+//  sightWordsContainer.classList.add('d-none');
+//  mathContainer.classList.remove('d-inline-flex');
+//  mathContainer.classList.add('d-none');
+//  missingLetterContainer.classList.remove('d-inline-flex');
+//  missingLetterContainer.classList.add('d-none');
+//  
+//});
+//
+//mathBtn.addEventListener("click", ()=> {
+//  mathContainer.classList.remove('d-none');
+//  mathContainer.classList.add('d-inline-flex');
+//  missingLetterContainer.classList.remove('d-inline-flex');
+//  missingLetterContainer.classList.add('d-none');
+//  sightWordsContainer.classList.remove('d-inline-flex');
+//  sightWordsContainer.classList.add('d-none');
+//  start.classList.remove('d-flex');
+//  start.classList.add('d-none');
+//});
+//
+//missingLetterBtn.addEventListener("click", ()=> {
+//  missingLetterContainer.classList.remove('d-none');
+//  missingLetterContainer.classList.add('d-inline-flex');
+//  mathContainer.classList.remove('d-inline-flex');
+//  mathContainer.classList.add('d-none');
+//  sightWordsContainer.classList.remove('d-inline-flex');
+//  sightWordsContainer.classList.add('d-none');
+//  start.classList.remove('d-flex');
+//  start.classList.add('d-none');
+//});
+//
+//sightWordsBtn.addEventListener("click", ()=> {
+//  sightWordsContainer.classList.remove('d-none');
+//  sightWordsContainer.classList.add('d-inline-flex');
+//  mathContainer.classList.remove('d-inline-flex');
+//  mathContainer.classList.add('d-none');
+//  missingLetterContainer.classList.remove('d-inline-flex');
+//  missingLetterContainer.classList.add('d-none');
+//  start.classList.remove('d-flex');
+//  start.classList.add('d-none');
+//});
+
+
+

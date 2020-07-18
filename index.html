@@ -17,7 +17,8 @@
     
     <div class="d-inline-flex">
       <div id="widgetControl" class="d-flex flex-column">
-        <button id="mathBtn" class="btn btn-primary btn-md m-3 active">Math</button>
+        <button id="homeBtn" class="btn btn-primary btn-md m-3 active">Home</button>
+        <button id="mathBtn" class="btn btn-primary btn-md m-3">Math</button>
         <button id="missingLetterBtn" class="btn btn-primary btn-md m-3">Missing Letter</button>
         <button id="sightWordsBtn" class="btn btn-primary btn-md m-3">Sight Words</button>
       </div>
@@ -25,8 +26,9 @@
     
     <div id="widgetContainer" class="d-flex justify-content-center">
       
-        <div id="loadWindow"></div>
-        <div id="mathContainer" class="d-none justify-content-center">
+<!--        <div id="loadWindow"></div>-->
+        <div id="start" class="widget d-inline-flex justify-content-center">Future start point</div>
+        <div id="mathContainer" class="widget d-none justify-content-center">
     
           <div>
             <div id="operatorDiv" class="d-flex justify-content-center">
@@ -52,12 +54,12 @@
               
               
               <div class="modal-correct" id="correctModal">
-                <div>Great Job!!!</div>
+                <div id="correctResponse"></div>
                 <button id="correctContinueButton">Continue</button>
               </div>
               
               <div class="modal-incorrect" id="incorrectModal">
-                <div>That's ok, try again</div>
+                <div id="incorrectResponse"></div>
                 <button id="incorrectContinueButton">Continue</button>
               </div>
               
@@ -85,19 +87,19 @@
           
     
         </div>
-              <div id="missingLetterDiv" class="d-none justify-content-center">
-            <div id="missingLetterContaine" class="d-flex justify-content-center">
+              <div id="missingLetterDiv" class="widget d-none justify-content-center">
+            <div id="missingLetterContainer" class="d-flex justify-content-center">
               <div id="contentContainer" class="d-column-flex justify-content-center">
                 <div id="imgContainer" class="d-flex justify-content-center"> <div id="imgDiv"></div></div>
                 <div id="wordDiv" class="d-flex justify-content-center"> </div>
-                <div id="chaeckAnswerDiv" class="d-flex justify-content-center"> <button id="checkAnswer">Check</button> </div>
+                <div id="checkAnswerDiv" class="d-flex justify-content-center"> <button id="checkAnswer">Check</button> </div>
             
               </div>
             </div>
           </div>
           
           
-          <div id="sightWordsDiv" class="d-none justify-content-center">Sight Words</div>
+          <div id="sightWordsDiv" class="widget d-none justify-content-center">Sight Words</div>
     </div>
     
   </div>
