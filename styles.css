@@ -5,6 +5,19 @@
   border: 1px solid red;
 */
 }
+#pageTitle {
+  font-family: 'Oswald', sans-serif;
+  color: grey;
+}
+
+#usernameForm {
+    width: 100%;
+    padding-left: 15%;
+}
+#start {
+  width: 100%;
+}
+
 .wordS {
   margin-left: 100px;
 }
@@ -60,7 +73,7 @@ img {
 }
 
 #checkAnswer{
-  
+
 }
 
 #checkAnswer {
@@ -88,7 +101,7 @@ img {
 }
 
 
-p, input {
+input {
   text-align: center;
   font-size: 25px;
   height: 50px;
@@ -98,24 +111,24 @@ p, input {
 }
 
 body {
-   padding-top: 100px;
    padding-left: 10%;
    padding-right: 10%;
+   /* background-image: url("dragon.png"); */
    background:
        radial-gradient(
-         rgba(35,37,38, 0.45),
-         rgba(65,67,68, 0.45)
-     ), url("background-dragon.jpg") no-repeat center center;
+         rgba(35,37,38, 0.25),
+         rgba(65,67,68, 0.25)
+     ), url("dragon.png") no-repeat center center;
    background-size: cover;
    color: white;
    height: 100vh;
-   box-shadow: inset 0px 0px 20px 0px rgba(0,0,0,1);
+   /* box-shadow: inset 0px 0px 20px 0px rgba(0,0,0,1); */
 }
 
 #widgetSpace {
   min-height: 600px;
   width: 1000px;
-  margin-left: 10%;
+  /* margin-left: 10%; */
 }
 
 #widgetContainer {
@@ -194,5 +207,3 @@ span, input {
 #mathContainer, #missingLetterDiv {
   background-color: rgba(120, 120, 120, .7);
 }
-
-
