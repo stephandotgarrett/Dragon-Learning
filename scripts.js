@@ -1,52 +1,61 @@
+//new player contructor
+function Player (name, mathPoints, mLPoints, sWPoints) {
+ this.name = name;
+ this.mathPoints = mathPoints;
+ this.mLPoints = mLPoints;
+ this.sWPoints = sWPoints;
+}
+
+//array to store player info
+var players = []
+
+//creates new player
+function newPlayer (name){
+  var newName = new Player(name, 0, 0, 0);
+  players.push(newName);
+}
+
+newPlayer('Stephan');
+newPlayer('The Kid');
+
+//var to store return input
+const stephan = 'Stephan';
+
+//looks for returning player
+function isPlayer(player) {
+  return player.name === stephan;
+}
+var returnPlayer = players.find(isPlayer);
+
+//do stuff with returning player info
+console.log(returnPlayer);
+
+//
+//save player
+// window.localStorage.setItem('player1', JSON.stringify(players[0]));
+
+//retrieve player
+// var player1 = JSON.parse(window.localStorage.getItem('player1'));
+//
 
 
-//function Player (name, mathPoints, mLPoints, sWPoints) {
-//  this.name = name;
-//  this.mathPoints = mathPoints;
-//  this.mLPoints = mLPoints;
-//  this.sWPoints = sWPoints;
-//}
-//
-//var players = [
-//  {name: 'Stephan',
-//  mathPoints: 10,
-//  mLPoints: 110,
-//  sWPoints: 10},
-//  {name: 'Joe',
-//  mathPoints: 20,
-//  mLPoints: 220,
-//  sWPoints: 20}
-//]
-//
-//var John = new Player('John', 0, 0, 0);
-//players.push(John);
-//console.log(players[2]);
-//
-//
-//window.localStorage.setItem('player3', JSON.stringify(players[2]));
-//var player3 = JSON.parse(window.localStorage.getItem('player3'));
-//
-//console.log(player3);
-//
-//window.localStorage.setItem('player1', JSON.stringify(players[0]));
-//var player1 = JSON.parse(window.localStorage.getItem('player1'));
-//
-//window.localStorage.setItem('player2', JSON.stringify(players[1]));
-//var player2 = JSON.parse(window.localStorage.getItem('player2'));
-//
-//
-//function updateMathScore (name){
-//  for (var i = 0; i < players.length; i++){
-//    if (name === players[i].name){
-//      players[i].mathPoints += 10;
-//      window.localStorage.setItem('player1', JSON.stringify(players[i]));
-//      player1 = JSON.parse(window.localStorage.getItem('player1'));
-////      console.log(player1);
-//    }
-//  }
-//}
-//updateMathScore('Stephan');
-//
+
+function updateMathScore (name){
+ for (var i = 0; i < players.length; i++){
+   if (name === players[i].name){
+     players[i].mathPoints += 10;
+     window.localStorage.setItem('player1', JSON.stringify(players[i]));
+     player1 = JSON.parse(window.localStorage.getItem('player1'));
+//      console.log(player1);
+   }
+ }
+}
+
+updateMathScore('Stephan');
+
+// updateMathScore('Stephan');
+console.log(players[0]);
+
 
 const start = document.getElementById('start');
 const homeBtn = document.getElementById('homeBtn');
@@ -134,7 +143,7 @@ for (var i = 0; i < widgetBtns.length; i++) {
 //  mathContainer.classList.add('d-none');
 //  missingLetterContainer.classList.remove('d-inline-flex');
 //  missingLetterContainer.classList.add('d-none');
-//  
+//
 //});
 //
 //mathBtn.addEventListener("click", ()=> {
@@ -169,6 +178,3 @@ for (var i = 0; i < widgetBtns.length; i++) {
 //  start.classList.remove('d-flex');
 //  start.classList.add('d-none');
 //});
-
-
-

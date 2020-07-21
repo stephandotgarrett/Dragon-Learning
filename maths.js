@@ -44,14 +44,14 @@ function setEquation(difficulty, operator){
 
   ans.value = '';
   ans.focus();
-  
+
   var oper = document.getElementById('operator');
   var num1 = document.getElementById('numOne');
   var num2 = document.getElementById('numTwo');
   var answerLength;
   var number1 = Math.round(Math.random()*difficulty);
   var number2 = Math.round(Math.random()*difficulty);
-  
+
   oper.innerHTML = operator;
   num1.innerHTML = number1;
   num2.innerHTML = number2;
@@ -68,10 +68,10 @@ function setEquation(difficulty, operator){
         solution = number1 * number2;
         break;
       case '/':
-      //To Do: Insure neither number can be zero
+      //To Do: Insure neither number can be zero and answer is whole number
         solution = number1 / number2;
         break;
-  }  
+  }
   answerLength = Math.log(solution) * Math.LOG10E + 1 | 0;
   ans.maxLength = answerLength;
 }
@@ -85,7 +85,7 @@ function setPageState(btns1, btns2){
       activeOp = btns1[i].value;
     }
   }
-  
+
   //Sets math difficuty
   for (var i = 0; i < btns2.length; i++){
     if (btns2[i].classList.contains('active')){
@@ -191,8 +191,3 @@ goBtn.addEventListener("click", function (){
 
 //Run Start
 setPageState(operatorBtns, difficultyBtns);
-
-
-
-
-
