@@ -54,12 +54,16 @@ createWord();
 checkAnswer.addEventListener("click", () =>{
   var input = document.getElementById('input');
   if(input.value === answer){
-    console.log('Good');
+    correctResponse.innerHTML = "Good job!";
+    showModal(correctModal);
+    correctContinueButton.focus();
     removeAllChildNodes(wordDiv);
     removeAllChildNodes(imgDiv);
     createWord();
   } else {
-    console.log('oops');
+    incorrectResponse.innerHTML = "Try again!";
+    showModal(incorrectModal);
+    incorrectContinueButton.focus();
     input.value = '';
     input.focus();
   }

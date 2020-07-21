@@ -57,6 +57,28 @@ updateMathScore('Stephan');
 console.log(players[0]);
 
 
+///  display modal in response to user input
+const correctResponse = document.getElementById('correctResponse');
+const incorrectResponse = document.getElementById('incorrectResponse');
+
+function showModal(modal) {
+  modal.classList.add('active');
+  overlay.classList.add('active');
+}
+correctContinueButton.addEventListener("click", () => {
+  correctModal.classList.remove('active');
+  overlay.classList.remove('active');
+//  ans.focus();
+});
+
+incorrectContinueButton.addEventListener("click", () => {
+  incorrectModal.classList.remove('active');
+  overlay.classList.remove('active');
+//  ans.focus();
+});
+
+
+/// widget button display controls
 const start = document.getElementById('start');
 const homeBtn = document.getElementById('homeBtn');
 
@@ -74,9 +96,7 @@ const widgetBtns = widgetControl.getElementsByClassName('btn');
 
 const widgetContainer = document.getElementById('widgetContainer');
 const widgets = widgetContainer.getElementsByClassName('widget');
-//console.log(widgets);
-//console.log(widgetBtns);
-//Repurpose as widget div display selector
+
 for (var i = 0; i < widgetBtns.length; i++) {
   widgetBtns[i].addEventListener("click", function() {
     var current = widgetControl.getElementsByClassName("active");
@@ -133,48 +153,4 @@ for (var i = 0; i < widgetBtns.length; i++) {
 }
 
 
-////add widget container to group all widgets for a loop to call active
-//homeBtn.addEventListener("click", ()=> {
-//  start.classList.remove('d-none');
-//  start.classList.add('d-flex');
-//  sightWordsContainer.classList.remove('d-inline-flex');
-//  sightWordsContainer.classList.add('d-none');
-//  mathContainer.classList.remove('d-inline-flex');
-//  mathContainer.classList.add('d-none');
-//  missingLetterContainer.classList.remove('d-inline-flex');
-//  missingLetterContainer.classList.add('d-none');
-//
-//});
-//
-//mathBtn.addEventListener("click", ()=> {
-//  mathContainer.classList.remove('d-none');
-//  mathContainer.classList.add('d-inline-flex');
-//  missingLetterContainer.classList.remove('d-inline-flex');
-//  missingLetterContainer.classList.add('d-none');
-//  sightWordsContainer.classList.remove('d-inline-flex');
-//  sightWordsContainer.classList.add('d-none');
-//  start.classList.remove('d-flex');
-//  start.classList.add('d-none');
-//});
-//
-//missingLetterBtn.addEventListener("click", ()=> {
-//  missingLetterContainer.classList.remove('d-none');
-//  missingLetterContainer.classList.add('d-inline-flex');
-//  mathContainer.classList.remove('d-inline-flex');
-//  mathContainer.classList.add('d-none');
-//  sightWordsContainer.classList.remove('d-inline-flex');
-//  sightWordsContainer.classList.add('d-none');
-//  start.classList.remove('d-flex');
-//  start.classList.add('d-none');
-//});
-//
-//sightWordsBtn.addEventListener("click", ()=> {
-//  sightWordsContainer.classList.remove('d-none');
-//  sightWordsContainer.classList.add('d-inline-flex');
-//  mathContainer.classList.remove('d-inline-flex');
-//  mathContainer.classList.add('d-none');
-//  missingLetterContainer.classList.remove('d-inline-flex');
-//  missingLetterContainer.classList.add('d-none');
-//  start.classList.remove('d-flex');
-//  start.classList.add('d-none');
-//});
+

@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Skranji&display=swap" rel="stylesheet">
   </head>
 
 
@@ -30,11 +31,11 @@
         <div id="start" class="widget d-inline-flex justify-content-center">
           <form id="usernameForm">
             <p>New Players Create a User Name Here:</p>
-            <label for="fname">User name:</label>
+            <label for="fname"></label>
             <input type="text" id="newName" name="fname"><br><br>
             <p>Returning Players Enter Your User Name Here:</p>
-            <label for="fname">User name:</label>
-            <input type="text" id="returnNname" name="fname"><br><br>
+            <label for="fname"></label>
+            <input type="text" id="returnName" name="fname"><br><br>
           </form>
 
         </div>
@@ -63,6 +64,7 @@
               <button id="go" class="ml-4">Go</button>
 
 
+<!--
               <div class="modal-correct" id="correctModal">
                 <div id="correctResponse"></div>
                 <button id="correctContinueButton">Continue</button>
@@ -72,6 +74,7 @@
                 <div id="incorrectResponse"></div>
                 <button id="incorrectContinueButton">Continue</button>
               </div>
+-->
 
 
             </div>
@@ -110,6 +113,15 @@
 
 
           <div id="sightWordsDiv" class="widget d-none justify-content-center">Sight Words</div>
+          <div class="modal-correct" id="correctModal">
+            <div id="correctResponse"></div>
+            <button id="correctContinueButton">Continue</button>
+          </div>
+
+          <div class="modal-incorrect" id="incorrectModal">
+            <div id="incorrectResponse"></div>
+            <button id="incorrectContinueButton">Continue</button>
+          </div>
     </div>
 
   </div>

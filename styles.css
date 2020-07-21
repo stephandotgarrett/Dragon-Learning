@@ -6,14 +6,34 @@
 */
 }
 #pageTitle {
-  font-family: 'Oswald', sans-serif;
+  margin-bottom: 100px;
+  font-family: 'Skranji', cursive;
   color: grey;
 }
 
 #usernameForm {
-    width: 100%;
-    padding-left: 15%;
+  font-family: 'Skranji', cursive;
+  color: #393736;
+  width: 100%;
+  padding-left: 15%;
 }
+
+#newName, #returnName {
+  width: 200px;
+  padding:8px; 
+  font-size:16px; 
+  border-radius:10px; 
+  border-color:#695352; 
+  color:#393736; 
+  background-color:#f3f2e7; 
+  border-style:outset; 
+  border-width:2px; 
+  font-style:none; 
+  font-family: 'Skranji', cursive;
+} 
+
+
+
 #start {
   width: 100%;
 }
@@ -72,10 +92,6 @@ img {
   display: inline-block;
 }
 
-#checkAnswer{
-
-}
-
 #checkAnswer {
 	box-shadow: 0px 10px 14px -7px #caefab;
 	background:linear-gradient(to bottom, #77d42a 5%, #5cb811 100%);
@@ -91,34 +107,33 @@ img {
 	text-decoration:none;
 	text-shadow:0px 1px 0px #aade7c;
 }
-.myButton:hover {
-	background:linear-gradient(to bottom, #5cbf2a 5%, #44c767 100%);
-	background-color:#5cbf2a;
-}
-.myButton:active {
-	position:relative;
-	top:1px;
-}
 
 
-input {
-  text-align: center;
-  font-size: 25px;
-  height: 50px;
-  width: 50px;
-  margin: 10px;
-  border-bottom: 1px solid black;
+
+#input, #answer {
+  padding:8px; 
+  font-size:16px; 
+  border-radius:10px; 
+  border-color:#695352; 
+  color:#393736; 
+  background-color:#f3f2e7; 
+  border-style:outset; 
+  border-width:2px; 
+  font-style:none; 
+  font-family: 'Skranji', cursive;
 }
 
 body {
    padding-left: 10%;
    padding-right: 10%;
-   /* background-image: url("dragon.png"); */
+  background-image: url("dragon.png");
+/*
    background:
        radial-gradient(
-         rgba(35,37,38, 0.25),
-         rgba(65,67,68, 0.25)
+         rgba(35,37,38, 0.05),
+         rgba(65,67,68, 0.05)
      ), url("dragon.png") no-repeat center center;
+*/
    background-size: cover;
    color: white;
    height: 100vh;
@@ -201,7 +216,7 @@ span, input {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, .5);
+  background-color: rgba(0, 0, 0, .25);
 }
 
 #mathContainer, #missingLetterDiv {

@@ -16,25 +16,6 @@ const incorrectModal = document.getElementById('incorrectModal');
 const correctContinueButton = document.getElementById('correctContinueButton');
 const incorrectContinueButton = document.getElementById('incorrectContinueButton');
 const overlay = document.getElementById('overlay');
-const correctResponse = document.getElementById('correctResponse');
-const incorrectResponse = document.getElementById('incorrectResponse');
-
-function showModal(modal) {
-  modal.classList.add('active');
-  overlay.classList.add('active');
-}
-
-correctContinueButton.addEventListener("click", () => {
-  correctModal.classList.remove('active');
-  overlay.classList.remove('active');
-  ans.focus();
-});
-
-incorrectContinueButton.addEventListener("click", () => {
-  incorrectModal.classList.remove('active');
-  overlay.classList.remove('active');
-  ans.focus();
-});
 
 
                 ////////        Page Functions       ////////
