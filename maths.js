@@ -33,7 +33,6 @@ correctContinueButton.addEventListener("click", () => {
 incorrectContinueButton.addEventListener("click", () => {
   incorrectModal.classList.remove('active');
   overlay.classList.remove('active');
-  console.log('stop1');
   ans.focus();
 });
 

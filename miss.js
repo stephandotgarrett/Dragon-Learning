@@ -17,8 +17,7 @@ function createWord () {
   var wordArray = [];
   wordIndex = Math.round(Math.random()*(threeLetWords.length-1));
   wordChoice = threeLetWords[wordIndex];
-  var word = wordChoice;
-  letterToRemove = Math.round(Math.random()*(word.length-1));
+  letterToRemove = Math.round(Math.random()*(wordChoice.length-1));
   var img = document.createElement("img");
   img.src = 'svg/' + threeLetImgs[wordIndex];
   img.style.height = '80%';
@@ -26,8 +25,8 @@ function createWord () {
   var picture = document.getElementById('imgDiv');
   picture.appendChild(img);
 
-  for (var i = 0; i < word.length; i++) {
-    wordArray.push(word.charAt(i));
+  for (var i = 0; i < wordChoice.length; i++) {
+    wordArray.push(wordChoice.charAt(i));
     var char = wordArray[i];
     if (char === wordArray[letterToRemove]){
       var newI = document.createElement('input');
@@ -47,16 +46,11 @@ function createWord () {
 }
 
 
-
-
   
 createWord();
 
 
-
-
-
-
+///  evaluates user input, removes word and creates new word if answer is correct, clears input and returns to word if user input is incorrect
 checkAnswer.addEventListener("click", () =>{
   var input = document.getElementById('input');
   if(input.value === answer){
@@ -78,3 +72,14 @@ function removeAllChildNodes(parent) {
     }
 }
 
+
+
+// <div class="modal-correct" id="correctModal">
+//                <div id="correctResponse"></div>
+//                <button id="correctContinueButton">Continue</button>
+//              </div>
+//              
+//              <div class="modal-incorrect" id="incorrectModal">
+//                <div id="incorrectResponse"></div>
+//                <button id="incorrectContinueButton">Continue</button>
+//              </div>
