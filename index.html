@@ -16,9 +16,25 @@
   <h1 id="pageTitle" class="text-center display-2">Welcome to Dragon Learning</h1>
 <!--  Widgets load here  -->
   <div id="widgetSpace" class="d-flex justify-content-center">
-
+         <div id="loginDiv" class="d-flex">
+          <form id="usernameForm">
+            <p>New Players Create a User Name Here:</p>
+<!--
+            <label for="fname"></label>
+-->
+            <input type="text" id="newName" name="fname"><br><br>
+            <button type="button" id="newPlayerBtn">submit</button><br><br>
+            <p>Returning Players Enter Your User Name Here:</p>
+<!--
+            <label for="fname"></label>
+-->
+            <input type="text" id="returnName" name="fname"><br><br>
+            <button type="button" id="returnPlayerBtn">submit</button>
+          </form>
+         </div>
+    
     <div class="d-inline-flex">
-      <div id="widgetControl" class="d-flex flex-column">
+      <div id="widgetControl" class="d-none flex-column">
         <button id="homeBtn" class="btn btn-primary btn-md m-3 active">Home</button>
         <button id="mathBtn" class="btn btn-primary btn-md m-3">Math</button>
         <button id="missingLetterBtn" class="btn btn-primary btn-md m-3">Missing Letter</button>
@@ -26,19 +42,17 @@
       </div>
     </div>
 
-    <div id="widgetContainer" class="d-flex justify-content-center">
+    <div id="widgetContainer" class="d-none justify-content-center">
 
         <div id="start" class="widget d-inline-flex justify-content-center">
-          <form id="usernameForm">
-            <p>New Players Create a User Name Here:</p>
-            <label for="fname"></label>
-            <input type="text" id="newName" name="fname"><br><br>
-            <p>Returning Players Enter Your User Name Here:</p>
-            <label for="fname"></label>
-            <input type="text" id="returnName" name="fname"><br><br>
-          </form>
-
+          <div id="welcome"></div>
+          <div id="mathPointsDiv"></div>
+          <div>Missing Letter Points:</div>
+          <div>Sight Words Points:</div>
+          <div>Total Points:</div>
         </div>
+     
+      
         <div id="mathContainer" class="widget d-none justify-content-center">
 
           <div>

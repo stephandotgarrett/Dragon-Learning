@@ -1,3 +1,15 @@
+const newPlayerInput = document.getElementById('newName');
+const newPlayerSubmit = document.getElementById('newPlayerBtn');
+const start = document.getElementById('start');
+const welcome = document.getElementById('welcome');
+const mathPointsDiv = document.getElementById('mathPointsDiv');
+const widgetControl = document.getElementById('widgetControl');
+const widgetBtns = widgetControl.getElementsByClassName('btn');
+const loginDiv = document.getElementById('loginDiv');
+const widgetContainer = document.getElementById('widgetContainer');
+const widgets = widgetContainer.getElementsByClassName('widget');
+
+
 //new player contructor
 function Player (name, mathPoints, mLPoints, sWPoints) {
  this.name = name;
@@ -15,8 +27,8 @@ function newPlayer (name){
   players.push(newName);
 }
 
-newPlayer('Stephan');
-newPlayer('The Kid');
+//newPlayer('Stephan');
+//newPlayer('The Kid');
 
 //var to store return input
 const stephan = 'Stephan';
@@ -25,10 +37,10 @@ const stephan = 'Stephan';
 function isPlayer(player) {
   return player.name === stephan;
 }
-var returnPlayer = players.find(isPlayer);
+//var returnPlayer = players.find(isPlayer);
 
 //do stuff with returning player info
-console.log(returnPlayer);
+//console.log(returnPlayer);
 
 //
 //save player
@@ -37,6 +49,22 @@ console.log(returnPlayer);
 //retrieve player
 // var player1 = JSON.parse(window.localStorage.getItem('player1'));
 //
+
+newPlayerSubmit.addEventListener("click", () => {
+  newPlayer(newPlayerInput.value);
+  loginDiv.classList.remove('d-flex');
+  loginDiv.classList.add('d-none');
+  widgetContainer.classList.remove('d-none');
+  widgetContainer.classList.add('d-flex');
+  widgetControl.classList.remove('d-none');
+  widgetControl.classList.add('d-flex');
+//save player to local
+//retrieve player from local
+//display player info as if reurning player
+  welcome.innerHTML = `Welcome ${players[0].name}!`
+  mathPointsDiv.innerHTML = `Math Points: ${players[0].mathPoints}`
+});
+
 
 
 
@@ -51,10 +79,10 @@ function updateMathScore (name){
  }
 }
 
-updateMathScore('Stephan');
+//updateMathScore('Stephan');
 
 // updateMathScore('Stephan');
-console.log(players[0]);
+//console.log(players[0]);
 
 
 ///  display modal in response to user input
@@ -79,7 +107,7 @@ incorrectContinueButton.addEventListener("click", () => {
 
 
 /// widget button display controls
-const start = document.getElementById('start');
+
 const homeBtn = document.getElementById('homeBtn');
 
 const mathBtn = document.getElementById('mathBtn');
@@ -91,11 +119,11 @@ const missingLetterContainer = document.getElementById('missingLetterDiv');
 const sightWordsBtn = document.getElementById('sightWordsBtn');
 const sightWordsContainer = document.getElementById('sightWordsDiv');
 
-const widgetControl = document.getElementById('widgetControl');
-const widgetBtns = widgetControl.getElementsByClassName('btn');
-
-const widgetContainer = document.getElementById('widgetContainer');
-const widgets = widgetContainer.getElementsByClassName('widget');
+//const widgetControl = document.getElementById('widgetControl');
+//const widgetBtns = widgetControl.getElementsByClassName('btn');
+//
+//const widgetContainer = document.getElementById('widgetContainer');
+//const widgets = widgetContainer.getElementsByClassName('widget');
 
 for (var i = 0; i < widgetBtns.length; i++) {
   widgetBtns[i].addEventListener("click", function() {

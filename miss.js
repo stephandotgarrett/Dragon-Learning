@@ -52,8 +52,8 @@ createWord();
 
 ///  evaluates user input, removes word and creates new word if answer is correct, clears input and returns to word if user input is incorrect
 checkAnswer.addEventListener("click", () =>{
-  var input = document.getElementById('input');
-  if(input.value === answer){
+  var missInput = document.getElementById('input');
+  if(missInput.value === answer){
     correctResponse.innerHTML = "Good job!";
     showModal(correctModal);
     correctContinueButton.focus();
