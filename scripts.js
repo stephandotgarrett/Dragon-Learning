@@ -19,12 +19,35 @@ function Player (name, mathPoints, mLPoints, sWPoints) {
 }
 
 //array to store player info
-var players = []
+var players = [];
+//localStorage.setItem('players', JSON.stringify(players));
+
 
 //creates new player
 function newPlayer (name){
-  var newName = new Player(name, 0, 0, 0);
-  players.push(newName);
+  if(JSON.parse(window.localStorage.getItem('players')) !== null){
+        console.log(players);
+        players = JSON.parse(window.localStorage.getItem('players'));
+        var activePlayers = [];
+            for(var i = 0; i < players.length; i++){
+                if (players[i].name === name){
+                   activePlayers.push(name);
+                } else {}
+            }
+        if(activePlayers.length > 0){
+          console.log('player exsists');
+        }else{
+          var player = new Player(name, 0, 0, 0);
+          players.push(player);
+          localStorage.setItem('players', JSON.stringify(players));
+          console.log(name);
+        }
+   }else{
+         var player = new Player(name, 0, 0, 0);
+         players.push(player);
+         localStorage.setItem('players', JSON.stringify(players));
+         console.log(name);
+   }
 }
 
 //newPlayer('Stephan');
@@ -51,7 +74,7 @@ function isPlayer(player) {
 //
 
 newPlayerSubmit.addEventListener("click", () => {
-  newPlayer(newPlayerInput.value);
+  newPlayer(newPlayerInput.value); //creates new player with scores set at 0
   loginDiv.classList.remove('d-flex');
   loginDiv.classList.add('d-none');
   widgetContainer.classList.remove('d-none');
@@ -71,7 +94,7 @@ newPlayerSubmit.addEventListener("click", () => {
 function updateMathScore (name){
  for (var i = 0; i < players.length; i++){
    if (name === players[i].name){
-     players[i].mathPoints += 10;
+     players[i].mathPoints += 1;
      window.localStorage.setItem('player1', JSON.stringify(players[i]));
      player1 = JSON.parse(window.localStorage.getItem('player1'));
 //      console.log(player1);
@@ -118,6 +141,8 @@ const missingLetterContainer = document.getElementById('missingLetterDiv');
 
 const sightWordsBtn = document.getElementById('sightWordsBtn');
 const sightWordsContainer = document.getElementById('sightWordsDiv');
+
+const logoutBtn = document.getElementById('logoutBtn');
 
 //const widgetControl = document.getElementById('widgetControl');
 //const widgetBtns = widgetControl.getElementsByClassName('btn');
@@ -175,6 +200,9 @@ for (var i = 0; i < widgetBtns.length; i++) {
         start.classList.remove('d-inline-flex');
         start.classList.add('d-none');
         console.log('sightWordsBtn');
+        break;
+      case 'logoutBtn':
+        location.reload();
         break;
     }
   });

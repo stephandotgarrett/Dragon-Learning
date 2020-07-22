@@ -42,7 +42,7 @@ function createWord () {
     }
   }
   answer = wordArray[letterToRemove];
-  input.focus();
+//  input.focus();
 }
 
 
