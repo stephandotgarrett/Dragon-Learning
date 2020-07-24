@@ -230,6 +230,7 @@ span, input {
 
 /* Modal Content */
 .modal-content {
+  color: black;
   background-color: #fefefe;
   margin: auto;
   padding: 20px;
@@ -239,7 +240,7 @@ span, input {
 
 /* The Close Button */
 .close {
-  color: #aaaaaa;
+  color: black;
   float: right;
   font-size: 28px;
   font-weight: bold;

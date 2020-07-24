@@ -258,9 +258,12 @@ var modal = document.getElementById("myModal");
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
 
+var modalMessage = document.getElementById('modalMessage');
+
 // When the user clicks the button, open the modal 
 newPlayerSubmit.onclick = function() {
   modal.style.display = "block";
+  modalMessage.innerHTML = "Player already Exsists";
 }
 
 // When the user clicks on <span> (x), close the modal
