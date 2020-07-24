@@ -6,12 +6,14 @@
     <title>Dragon Learning</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Skranji&display=swap" rel="stylesheet">
   </head>
 
 
  <body id="overlay">
+
 <div  >
   <h1 id="pageTitle" class="text-center display-2">Welcome to Dragon Learning</h1>
 <!--  Widgets load here  -->
@@ -78,7 +80,12 @@
               <input id="answer">
               <button id="go" class="ml-4">Go</button>
 
-
+<!--
+             <div class="modal" id="modal">
+            <div id="modalResponse"></div>
+            <button id="modalButton">Continue</button>
+          </div>
+-->
 <!--
               <div class="modal-correct" id="correctModal">
                 <div id="correctResponse"></div>
@@ -128,20 +135,36 @@
 
 
           <div id="sightWordsDiv" class="widget d-none justify-content-center">Sight Words</div>
-          <div class="modal-correct" id="correctModal">
+      
+
+<!--
+      
+          <div class="modal" id="correctModal">
             <div id="correctResponse"></div>
             <button id="correctContinueButton">Continue</button>
           </div>
 
-          <div class="modal-incorrect" id="incorrectModal">
+          <div class="modal" id="incorrectModal">
             <div id="incorrectResponse"></div>
             <button id="incorrectContinueButton">Continue</button>
           </div>
+-->
+
     </div>
 
   </div>
+  
+  <!-- The Modal -->
+<div id="myModal" class="modal">
 
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p>Some text in the Modal..</p>
+  </div>
 
+</div>
+<!--modal end-->
 </div>
 
 

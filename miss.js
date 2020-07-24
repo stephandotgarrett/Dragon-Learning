@@ -49,21 +49,21 @@ function createWord () {
   
 createWord();
 
-
+const modalButton = document.getElementById('modalButton');
 ///  evaluates user input, removes word and creates new word if answer is correct, clears input and returns to word if user input is incorrect
 checkAnswer.addEventListener("click", () =>{
   var missInput = document.getElementById('input');
   if(missInput.value === answer){
-    correctResponse.innerHTML = "Good job!";
-    showModal(correctModal);
-    correctContinueButton.focus();
+    modal.innerHTML = "Good job!";
+    showModal();
+    modalButton.focus();
     removeAllChildNodes(wordDiv);
     removeAllChildNodes(imgDiv);
     createWord();
   } else {
-    incorrectResponse.innerHTML = "Try again!";
-    showModal(incorrectModal);
-    incorrectContinueButton.focus();
+//    incorrectResponse.innerHTML = "Try again!";
+    showModal("Try again!");
+    modalButton.focus();
     input.value = '';
     input.focus();
   }

@@ -170,7 +170,8 @@ span, input {
 }
 
 
-.modal-correct {
+/*
+.modal {
   position: fixed;
   top: 50%;
   left: 50%;
@@ -183,30 +184,14 @@ span, input {
   max-width: 60%;
 }
 
-.modal-correct.active{
+.modal.active{
   transform: translate(-50%, -50%) scale(1);
   color: black;
 }
-
-.modal-incorrect {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%)scale(0);
-  border: 1px solid black;
-  border-radius: 10px;
-  z-index: 10;
-  background-color: white;
-  width: 500px;
-  max-width: 60%;
-}
-
-.modal-incorrect.active{
-  transform: translate(-50%, -50%) scale(1);
-  color: black;
-}
+*/
 
 
+/*
 #overlay {
   opacity: 1;
 }
@@ -218,7 +203,51 @@ span, input {
   bottom: 0;
   background-color: rgba(0, 0, 0, .25);
 }
+*/
 
 #mathContainer, #missingLetterDiv {
   background-color: rgba(120, 120, 120, .7);
+}
+
+
+
+
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
 }
