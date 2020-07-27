@@ -7,8 +7,6 @@ var answer;
 
 
 
-
-
 function createWord () {
   var wordIndex;
   var wordChoice = '';
@@ -46,7 +44,7 @@ function createWord () {
 }
 
 
-  
+
 createWord();
 
 const modalButton = document.getElementById('modalButton');
@@ -58,6 +56,7 @@ checkAnswer.addEventListener("click", () =>{
     modal.style.display = "block";
     currentPlayer.mLPoints += 1;
     localStorage.setItem('players', JSON.stringify(players));
+    displayPoints(currentPlayer);
     removeAllChildNodes(wordDiv);
     removeAllChildNodes(imgDiv);
     createWord();
@@ -67,7 +66,7 @@ checkAnswer.addEventListener("click", () =>{
     input.value = '';
     input.focus();
   }
-}); 
+});
 
 
 function removeAllChildNodes(parent) {
@@ -82,7 +81,7 @@ function removeAllChildNodes(parent) {
 //                <div id="correctResponse"></div>
 //                <button id="correctContinueButton">Continue</button>
 //              </div>
-//              
+//
 //              <div class="modal-incorrect" id="incorrectModal">
 //                <div id="incorrectResponse"></div>
 //                <button id="incorrectContinueButton">Continue</button>

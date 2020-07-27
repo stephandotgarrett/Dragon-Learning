@@ -6,9 +6,16 @@
 */
 }
 #pageTitle {
-  margin-bottom: 100px;
   font-family: 'Skranji', cursive;
   color: grey;
+  margin-left: -30px;
+  margin-right: -40px;
+}
+
+#pointsDiv{
+  width: 100%;
+  font-family: 'Skranji', cursive;
+  color: #393736;
 }
 
 #usernameForm {
@@ -20,29 +27,31 @@
 
 #newName, #returnName {
   width: 200px;
-  padding:8px; 
-  font-size:16px; 
-  border-radius:10px; 
-  border-color:#695352; 
-  color:#393736; 
-  background-color:#f3f2e7; 
-  border-style:outset; 
-  border-width:2px; 
-  font-style:none; 
+  padding:8px;
+  font-size:16px;
+  border-radius:10px;
+  border-color:#695352;
+  color:#393736;
+  background-color:#f3f2e7;
+  border-style:outset;
+  border-width:2px;
+  font-style:none;
   font-family: 'Skranji', cursive;
-} 
-
-
+}
 
 #start {
   width: 100%;
 }
 
+#welcome {
+  font-family: 'Skranji', cursive;
+  font-size:75px;
+  align-self: center;
+}
+
 .wordS {
   margin-left: 100px;
 }
-
-
 
 .letter {
   padding: 10px;
@@ -60,8 +69,6 @@ html, body {
 #imgDiv {
   height: 350px;
   width: 400px;
-
-
 }
 
 img {
@@ -69,9 +76,6 @@ img {
 }
 
 * {
-/*
-  border: 1px solid red;
-*/
   padding: 2px;
 }
 
@@ -111,15 +115,15 @@ img {
 
 
 #input, #answer {
-  padding:8px; 
-  font-size:16px; 
-  border-radius:10px; 
-  border-color:#695352; 
-  color:#393736; 
-  background-color:#f3f2e7; 
-  border-style:outset; 
-  border-width:2px; 
-  font-style:none; 
+  padding:8px;
+  font-size:16px;
+  border-radius:10px;
+  border-color:#695352;
+  color:#393736;
+  background-color:#f3f2e7;
+  border-style:outset;
+  border-width:2px;
+  font-style:none;
   font-family: 'Skranji', cursive;
 }
 
@@ -149,7 +153,11 @@ body {
 #widgetContainer {
   width: 750px;
 /*  background-color: red;*/
-  background-color: rgba(120, 120, 120, .7);
+  /* background-color: rgba(120, 120, 120, .7); */
+  border-radius: 25px;
+  box-shadow: 25px 25px 50px rgba(0, 0, 0, 0.5) inset;
+  background: rgb(0,0,4);
+  background: radial-gradient(circle, rgba(0,0,4,1) 32%, rgba(77,167,227,0.9542191876750701) 68%, rgba(144,203,246,0.6573004201680672) 100%);
 }
 
 div, span, button {
@@ -168,51 +176,11 @@ span, input {
   height: 40px;
 }
 
-
-/*
-.modal {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) scale(0);
-  border: 1px solid black;
-  border-radius: 10px;
-  z-index: 10;
-  background-color: white;
-  width: 500px;
-  max-width: 60%;
+#sightWordsDiv {
+  font-family: 'Skranji', cursive;
+  font-size: 100px;
+  padding-top: 26%;
 }
-
-.modal.active{
-  transform: translate(-50%, -50%) scale(1);
-  color: black;
-}
-*/
-
-
-/*
-#overlay {
-  opacity: 1;
-}
-
-#overlay.active {
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, .25);
-}
-*/
-
-/*
-#mathContainer, #missingLetterDiv {
-  background-color: rgba(120, 120, 120, .7);
-}
-*/
-
-
-
-
 
 /* The Modal (background) */
 .modal {

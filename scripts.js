@@ -2,9 +2,13 @@ const newPlayerInput = document.getElementById('newName');
 const newPlayerSubmit = document.getElementById('newPlayerBtn');
 const start = document.getElementById('start');
 const welcome = document.getElementById('welcome');
+// const leaderboard = document.getElementById('leaderboard');
+const pageTitle = document.getElementById('pageTitle');
+const pointsDiv = document.getElementById('pointsDiv');
 const mathPointsDiv = document.getElementById('mathPointsDiv');
 const mlPointsDiv = document.getElementById('mlPointsDiv');
 const swPointsDiv = document.getElementById('swPointsDiv');
+const totalPointsDiv = document.getElementById('totalPointsDiv');
 const widgetControl = document.getElementById('widgetControl');
 const widgetBtns = widgetControl.getElementsByClassName('btn');
 const loginDiv = document.getElementById('loginDiv');
@@ -26,14 +30,29 @@ var players = [];
 var currentPlayer;
 //localStorage.setItem('players', JSON.stringify(players));
 
+// function displayLeaderboard (){
+//   leaderboard.innerHTML = players.name;
+// }
 
 function displayWidgets (){
    loginDiv.classList.remove('d-flex');
    loginDiv.classList.add('d-none');
+   pageTitle.classList.remove('d-flex');
+   pageTitle.classList.add('d-none');
+   pointsDiv.classList.remove('d-none');
+   pointsDiv.classList.add('d-inline-flex');
    widgetContainer.classList.remove('d-none');
    widgetContainer.classList.add('d-flex');
    widgetControl.classList.remove('d-none');
    widgetControl.classList.add('d-flex');
+}
+
+function displayPoints (player){
+  mathPointsDiv.innerHTML = `Math Points: ${player.mathPoints}`
+  mlPointsDiv.innerHTML = `Missing Letter Points: ${player.mLPoints}`
+  //swPointsDiv.innerHTML = `Sight Words Points: ${player.sWPoints}`
+  var total = player.mathPoints + player.mLPoints;
+  totalPointsDiv.innerHTML = `Total points: ${total}`;
 }
 
 //creates new player
@@ -62,9 +81,7 @@ function newPlayer (name){
                 currentPlayer = player;
                 displayWidgets();
                 welcome.innerHTML = `Welcome ${currentPlayer.name}!`
-                mathPointsDiv.innerHTML = `Math Points: ${currentPlayer.mathPoints}`
-                mlPointsDiv.innerHTML = `Missing Letter Points: ${currentPlayer.mLPoints}`
-                swPointsDiv.innerHTML = `Sight Words Points: ${currentPlayer.sWPoints}`
+                displayPoints(currentPlayer);
               }
          }else{
                var player = new Player(name, 0, 0, 0);
@@ -73,9 +90,7 @@ function newPlayer (name){
                currentPlayer = player;
                displayWidgets();
                welcome.innerHTML = `Welcome ${currentPlayer.name}!`
-               mathPointsDiv.innerHTML = `Math Points: ${currentPlayer.mathPoints}`
-               mlPointsDiv.innerHTML = `Missing Letter Points: ${currentPlayer.mLPoints}`
-               swPointsDiv.innerHTML = `Sight Words Points: ${currentPlayer.sWPoints}`
+               displayPoints(currentPlayer);
          }
   }else{
     modalMessage.innerHTML = "Letters and numbers only here!";
@@ -94,10 +109,10 @@ function returningPlayer (name) {
     modal.style.display = "block";
   } else {
     players = JSON.parse(window.localStorage.getItem('players'));
-    
+
     //var to store return input
     var returnName = name;
-    
+
     //looks for returning player
     function isPlayer(player) {
         return player.name === returnName;
@@ -111,9 +126,7 @@ function returningPlayer (name) {
       currentPlayer = returnPlayer;
       console.log(returnPlayer);
       welcome.innerHTML = `Welcome ${currentPlayer.name}!`
-      mathPointsDiv.innerHTML = `Math Points: ${currentPlayer.mathPoints}`
-      mlPointsDiv.innerHTML = `Missing Letter Points: ${currentPlayer.mLPoints}`
-      swPointsDiv.innerHTML = `Sight Words Points: ${currentPlayer.sWPoints}`
+      displayPoints(currentPlayer);
       displayWidgets();
     }
   }
@@ -122,25 +135,6 @@ function returningPlayer (name) {
 returningPlayerBtn.onclick = function() {
   returningPlayer(returnName.value);
 }
-
-
-function updateMathScore (name){
- for (var i = 0; i < players.length; i++){
-   if (name === players[i].name){
-     console.log(name);
-     players[i].mathPoints += 1;
-     localStorage.setItem('players', JSON.stringify(players));
-//     player1 = JSON.parse(window.localStorage.getItem('player1'));
-//      console.log(player1);
-   }
- }
-}
-
-//updateMathScore('Stephan');
-
-// updateMathScore('Stephan');
-//console.log(players[0]);
-
 
 
 /// widget button display controls
@@ -174,7 +168,7 @@ for (var i = 0; i < widgetBtns.length; i++) {
         mathContainer.classList.add('d-none');
         missingLetterContainer.classList.remove('d-inline-flex');
         missingLetterContainer.classList.add('d-none');
-        console.log('homeBtn');
+        // displayLeaderboard();
         break;
       case 'mathBtn':
         mathContainer.classList.remove('d-none');
@@ -185,7 +179,6 @@ for (var i = 0; i < widgetBtns.length; i++) {
         sightWordsContainer.classList.add('d-none');
         start.classList.remove('d-flex');
         start.classList.add('d-none');
-        console.log('mathBtn');
         break;
       case 'missingLetterBtn':
         missingLetterContainer.classList.remove('d-none');
@@ -196,7 +189,6 @@ for (var i = 0; i < widgetBtns.length; i++) {
         sightWordsContainer.classList.add('d-none');
         start.classList.remove('d-flex');
         start.classList.add('d-none');
-        console.log('missingLetterBtn');
         break;
       case 'sightWordsBtn':
         sightWordsContainer.classList.remove('d-none');
@@ -207,7 +199,6 @@ for (var i = 0; i < widgetBtns.length; i++) {
         missingLetterContainer.classList.add('d-none');
         start.classList.remove('d-flex');
         start.classList.add('d-none');
-        console.log('sightWordsBtn');
         break;
       case 'logoutBtn':
         location.reload();
@@ -234,7 +225,7 @@ var span = document.getElementsByClassName("close")[0];
 
 var modalMessage = document.getElementById('modalMessage');
 
-// When the user clicks the button, open the modal 
+// When the user clicks the button, open the modal
 newPlayerSubmit.onclick = function() {
   newPlayer(newPlayerInput.value);
 }
@@ -250,4 +241,3 @@ window.onclick = function(event) {
     modal.style.display = "none";
   }
 }
-

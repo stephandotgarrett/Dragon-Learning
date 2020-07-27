@@ -14,33 +14,34 @@
 
  <body id="overlay">
 
-<div  >
-  <h1 id="pageTitle" class="text-center display-2">Welcome to Dragon Learning</h1>
+<div >
+  <h1 id="pageTitle" class="d-flex text-center display-2">Welcome to Dragon Learning</h1>
+  <div id="pointsDiv" class="d-none justify-content-center">
+    <div id="mathPointsDiv"></div>
+    <div id="mlPointsDiv"></div>
+    <!-- <div id="swPointsDiv"></div> -->
+    <div id="totalPointsDiv"></div>
+  </div>
+
 <!--  Widgets load here  -->
   <div id="widgetSpace" class="d-flex justify-content-center">
          <div id="loginDiv" class="d-flex">
           <form id="usernameForm">
             <p>New Players Create a User Name Here:</p>
-<!--
-            <label for="fname"></label>
--->
             <input type="text" id="newName" name="fname"><br><br>
             <button type="button" id="newPlayerBtn">submit</button><br><br>
             <p>Returning Players Enter Your User Name Here:</p>
-<!--
-            <label for="fname"></label>
--->
             <input type="text" id="returnName" name="fname"><br><br>
             <button type="button" id="returnPlayerBtn">submit</button>
           </form>
          </div>
-    
+
     <div class="d-inline-flex">
       <div id="widgetControl" class="d-none flex-column">
         <button id="homeBtn" class="btn btn-primary btn-md m-3 active">Home</button>
         <button id="mathBtn" class="btn btn-primary btn-md m-3">Math</button>
         <button id="missingLetterBtn" class="btn btn-primary btn-md m-3">Missing Letter</button>
-        <button id="sightWordsBtn" class="btn btn-primary btn-md m-3">Sight Words</button>
+        <button id="sightWordsBtn" class="btn btn-primary btn-md m-3">Coming Soon!</button>
         <button id="logoutBtn" class="btn btn-primary btn-md m-3">Logout</button>
       </div>
     </div>
@@ -49,15 +50,10 @@
 
         <div id="start" class="widget d-flex flex-column justify-content-center">
           <div id="welcome"></div>
-          <div id="pointsDiv" class="d-inline-flex justify-content-center">
-            <div id="mathPointsDiv">Math Points</div>
-            <div id="mlPointsDiv">Missing Letter Points:</div>
-            <div id="swPointsDiv"></div>
-          </div>
-          <div id="totalPointsDiv">Total Points:</div>
+          <!-- <div id="leaderboard">Leaderboard</div> -->
         </div>
-     
-      
+
+
         <div id="mathContainer" class="widget d-none justify-content-center">
 
           <div>
@@ -81,24 +77,6 @@
               <span id="equals">=</span>
               <input id="answer">
               <button id="go" class="ml-4">Go</button>
-
-<!--
-             <div class="modal" id="modal">
-            <div id="modalResponse"></div>
-            <button id="modalButton">Continue</button>
-          </div>
--->
-<!--
-              <div class="modal-correct" id="correctModal">
-                <div id="correctResponse"></div>
-                <button id="correctContinueButton">Continue</button>
-              </div>
-
-              <div class="modal-incorrect" id="incorrectModal">
-                <div id="incorrectResponse"></div>
-                <button id="incorrectContinueButton">Continue</button>
-              </div>
--->
 
 
             </div>
@@ -136,38 +114,25 @@
           </div>
 
 
-          <div id="sightWordsDiv" class="widget d-none justify-content-center">Sight Words</div>
-      
+          <div id="sightWordsDiv" class="widget d-none justify-content-center">Coming Soon!</div>
 
-<!--
-      
-          <div class="modal" id="correctModal">
-            <div id="correctResponse"></div>
-            <button id="correctContinueButton">Continue</button>
-          </div>
-
-          <div class="modal" id="incorrectModal">
-            <div id="incorrectResponse"></div>
-            <button id="incorrectContinueButton">Continue</button>
-          </div>
--->
 
     </div>
 
   </div>
-  
+
   <!-- The Modal -->
 <div id="myModal" class="modal">
 
   <!-- Modal content -->
   <div class="modal-content">
     <span class="close">&times;</span>
-    <p id="modalMessage">Some text in the Modal..</p>
+    <p id="modalMessage"></p>
   </div>
 
 </div>
 <!--modal end-->
-  
+
 </div>
 
 

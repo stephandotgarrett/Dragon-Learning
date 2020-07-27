@@ -121,6 +121,7 @@ goBtn.addEventListener("click", function (){
       modal.style.display = "block";
       currentPlayer.mathPoints += 1;
       localStorage.setItem('players', JSON.stringify(players));
+      displayPoints(currentPlayer);
       console.log(currentPlayer);
       setPageState(operatorBtns, difficultyBtns);
     } else {
