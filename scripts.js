@@ -3,6 +3,8 @@ const newPlayerSubmit = document.getElementById('newPlayerBtn');
 const start = document.getElementById('start');
 const welcome = document.getElementById('welcome');
 const mathPointsDiv = document.getElementById('mathPointsDiv');
+const mlPointsDiv = document.getElementById('mlPointsDiv');
+const swPointsDiv = document.getElementById('swPointsDiv');
 const widgetControl = document.getElementById('widgetControl');
 const widgetBtns = widgetControl.getElementsByClassName('btn');
 const loginDiv = document.getElementById('loginDiv');
@@ -20,8 +22,19 @@ function Player (name, mathPoints, mLPoints, sWPoints) {
 
 //array to store player info
 var players = [];
+
+var currentPlayer;
 //localStorage.setItem('players', JSON.stringify(players));
 
+
+function displayWidgets (){
+   loginDiv.classList.remove('d-flex');
+   loginDiv.classList.add('d-none');
+   widgetContainer.classList.remove('d-none');
+   widgetContainer.classList.add('d-flex');
+   widgetControl.classList.remove('d-none');
+   widgetControl.classList.add('d-flex');
+}
 
 //creates new player
 function newPlayer (name){
@@ -46,29 +59,23 @@ function newPlayer (name){
                 var player = new Player(name, 0, 0, 0);
                 players.push(player);
                 localStorage.setItem('players', JSON.stringify(players));
-                welcome.innerHTML = `Welcome ${player.name}!`
-                mathPointsDiv.innerHTML = `Math Points: ${player.mathPoints}`
-                loginDiv.classList.remove('d-flex');
-                loginDiv.classList.add('d-none');
-                widgetContainer.classList.remove('d-none');
-                widgetContainer.classList.add('d-flex');
-                widgetControl.classList.remove('d-none');
-                widgetControl.classList.add('d-flex');
-                console.log(name);
+                currentPlayer = player;
+                displayWidgets();
+                welcome.innerHTML = `Welcome ${currentPlayer.name}!`
+                mathPointsDiv.innerHTML = `Math Points: ${currentPlayer.mathPoints}`
+                mlPointsDiv.innerHTML = `Missing Letter Points: ${currentPlayer.mLPoints}`
+                swPointsDiv.innerHTML = `Sight Words Points: ${currentPlayer.sWPoints}`
               }
          }else{
                var player = new Player(name, 0, 0, 0);
                players.push(player);
                localStorage.setItem('players', JSON.stringify(players));
-               welcome.innerHTML = `Welcome ${player.name}!`
-               mathPointsDiv.innerHTML = `Math Points: ${player.mathPoints}`
-               loginDiv.classList.remove('d-flex');
-               loginDiv.classList.add('d-none');
-               widgetContainer.classList.remove('d-none');
-               widgetContainer.classList.add('d-flex');
-               widgetControl.classList.remove('d-none');
-               widgetControl.classList.add('d-flex');
-               console.log(name);
+               currentPlayer = player;
+               displayWidgets();
+               welcome.innerHTML = `Welcome ${currentPlayer.name}!`
+               mathPointsDiv.innerHTML = `Math Points: ${currentPlayer.mathPoints}`
+               mlPointsDiv.innerHTML = `Missing Letter Points: ${currentPlayer.mLPoints}`
+               swPointsDiv.innerHTML = `Sight Words Points: ${currentPlayer.sWPoints}`
          }
   }else{
     modalMessage.innerHTML = "Letters and numbers only here!";
@@ -86,20 +93,29 @@ function returningPlayer (name) {
     modalMessage.innerHTML = "There are no exsisting players. Please create a unique id.";
     modal.style.display = "block";
   } else {
-    
     players = JSON.parse(window.localStorage.getItem('players'));
+    
     //var to store return input
-    const returnName = name;
+    var returnName = name;
     
     //looks for returning player
     function isPlayer(player) {
         return player.name === returnName;
-        console.log(returnName);
     }
     var returnPlayer = players.find(isPlayer);
 
-    //do stuff with returning player info
-    console.log(returnPlayer);
+    if (returnPlayer === undefined){
+      modalMessage.innerHTML = "That user id doesn't exsist. Please create a unique id.";
+      modal.style.display = "block";
+    }else{
+      currentPlayer = returnPlayer;
+      console.log(returnPlayer);
+      welcome.innerHTML = `Welcome ${currentPlayer.name}!`
+      mathPointsDiv.innerHTML = `Math Points: ${currentPlayer.mathPoints}`
+      mlPointsDiv.innerHTML = `Missing Letter Points: ${currentPlayer.mLPoints}`
+      swPointsDiv.innerHTML = `Sight Words Points: ${currentPlayer.sWPoints}`
+      displayWidgets();
+    }
   }
 }
 
@@ -107,35 +123,14 @@ returningPlayerBtn.onclick = function() {
   returningPlayer(returnName.value);
 }
 
-//Player('Stephan');
-//newPlayer('The Kid');
-
-//var to store return input
-const stephan = 'Stephan';
-
-//looks for returning player
-function isPlayer(player) {
-  return player.name === stephan;
-}
-//var returnPlayer = players.find(isPlayer);
-
-//do stuff with returning player info
-//console.log(returnPlayer);
-
-//
-//save player
-// window.localStorage.setItem('player1', JSON.stringify(players[0]));
-
-//retrieve player
-// var player1 = JSON.parse(window.localStorage.getItem('player1'));
-
 
 function updateMathScore (name){
  for (var i = 0; i < players.length; i++){
    if (name === players[i].name){
+     console.log(name);
      players[i].mathPoints += 1;
-     window.localStorage.setItem('player1', JSON.stringify(players[i]));
-     player1 = JSON.parse(window.localStorage.getItem('player1'));
+     localStorage.setItem('players', JSON.stringify(players));
+//     player1 = JSON.parse(window.localStorage.getItem('player1'));
 //      console.log(player1);
    }
  }
@@ -172,7 +167,7 @@ for (var i = 0; i < widgetBtns.length; i++) {
     switch(this.id) {
       case 'homeBtn':
         start.classList.remove('d-none');
-        start.classList.add('d-inline-flex');
+        start.classList.add('d-flex');
         sightWordsContainer.classList.remove('d-inline-flex');
         sightWordsContainer.classList.add('d-none');
         mathContainer.classList.remove('d-inline-flex');
@@ -188,7 +183,7 @@ for (var i = 0; i < widgetBtns.length; i++) {
         missingLetterContainer.classList.add('d-none');
         sightWordsContainer.classList.remove('d-inline-flex');
         sightWordsContainer.classList.add('d-none');
-        start.classList.remove('d-inline-flex');
+        start.classList.remove('d-flex');
         start.classList.add('d-none');
         console.log('mathBtn');
         break;
@@ -199,7 +194,7 @@ for (var i = 0; i < widgetBtns.length; i++) {
         mathContainer.classList.add('d-none');
         sightWordsContainer.classList.remove('d-inline-flex');
         sightWordsContainer.classList.add('d-none');
-        start.classList.remove('d-inline-flex');
+        start.classList.remove('d-flex');
         start.classList.add('d-none');
         console.log('missingLetterBtn');
         break;
@@ -210,7 +205,7 @@ for (var i = 0; i < widgetBtns.length; i++) {
         mathContainer.classList.add('d-none');
         missingLetterContainer.classList.remove('d-inline-flex');
         missingLetterContainer.classList.add('d-none');
-        start.classList.remove('d-inline-flex');
+        start.classList.remove('d-flex');
         start.classList.add('d-none');
         console.log('sightWordsBtn');
         break;

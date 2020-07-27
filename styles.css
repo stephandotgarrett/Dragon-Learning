@@ -148,9 +148,8 @@ body {
 
 #widgetContainer {
   width: 750px;
-/*
-  background-color: red;
-*/
+/*  background-color: red;*/
+  background-color: rgba(120, 120, 120, .7);
 }
 
 div, span, button {
@@ -205,9 +204,11 @@ span, input {
 }
 */
 
+/*
 #mathContainer, #missingLetterDiv {
   background-color: rgba(120, 120, 120, .7);
 }
+*/
 
 
 

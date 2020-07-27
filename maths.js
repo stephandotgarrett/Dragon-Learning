@@ -117,21 +117,23 @@ goBtn.addEventListener("click", function (){
   var ansREGX = /^[0-9]+$/;
   if(ansREGX.test(ans.value)){
     if (ans.value === solution.toString()){
-      correctResponse.innerHTML = "Good job!";
-      showModal(correctModal);
-      correctContinueButton.focus();
+      modalMessage.innerHTML = "Good job!";
+      modal.style.display = "block";
+      currentPlayer.mathPoints += 1;
+      localStorage.setItem('players', JSON.stringify(players));
+      console.log(currentPlayer);
       setPageState(operatorBtns, difficultyBtns);
     } else {
-      incorrectResponse.innerHTML = "Try again!";
-      showModal(incorrectModal);
-      incorrectContinueButton.focus();
+      modalMessage.innerHTML = "Try again!";
+      modal.style.display = "block";
       ans.value ='';
+      ans.focus();
       }
   } else {
-      incorrectResponse.innerHTML = "Numbers only here!";
-      showModal(incorrectModal);
-      incorrectContinueButton.focus();
+      modalMessage.innerHTML = "Numbers only here!";
+      modal.style.display = "block";
       ans.value ='';
+      ans.focus();
   }
 })
 

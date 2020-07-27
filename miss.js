@@ -54,16 +54,16 @@ const modalButton = document.getElementById('modalButton');
 checkAnswer.addEventListener("click", () =>{
   var missInput = document.getElementById('input');
   if(missInput.value === answer){
-    modal.innerHTML = "Good job!";
-    showModal();
-    modalButton.focus();
+    modalMessage.innerHTML = "Good job!";
+    modal.style.display = "block";
+    currentPlayer.mLPoints += 1;
+    localStorage.setItem('players', JSON.stringify(players));
     removeAllChildNodes(wordDiv);
     removeAllChildNodes(imgDiv);
     createWord();
   } else {
-//    incorrectResponse.innerHTML = "Try again!";
-    showModal("Try again!");
-    modalButton.focus();
+    modalMessage.innerHTML = "Try again!";
+    modal.style.display = "block";
     input.value = '';
     input.focus();
   }
