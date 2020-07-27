@@ -1,9 +1,7 @@
 /*   CSS page styling will go here!   */
 
 * {
-/*
-  border: 1px solid red;
-*/
+  padding: 2px;
 }
 #pageTitle {
   font-family: 'Skranji', cursive;
@@ -73,10 +71,6 @@ html, body {
 
 img {
   margin: 10%;
-}
-
-* {
-  padding: 2px;
 }
 
 #missingLetterDiv {
