@@ -28,11 +28,11 @@ function newPlayer (name){
   console.log(typeof(name));
   var nameREGX = /^[A-Za-z0-9]+$/;
   if(name ===  ""){
-    console.log("Please create a username");
+    modalMessage.innerHTML = "Please create a username";
+    modal.style.display = "block";
   }else if (nameREGX.test(name)){
         if(JSON.parse(window.localStorage.getItem('players')) !== null){
               players = JSON.parse(window.localStorage.getItem('players'));
-          console.log(players);
               var activePlayers = [];
                   for(var i = 0; i < players.length; i++){
                       if (players[i].name === name){
@@ -40,22 +40,8 @@ function newPlayer (name){
                       } else {}
                   }
               if(activePlayers.length > 0){
-//                var newModal = document.createElement('div');
-//                widgetSpace.appendChild(newModal);
-//                newModal.classList.add("modal");
-//                newModal.classList.add('active ');
-////                overlay.classList.add('active');
-//                newModal.id = "newModal";
-//                var newModalDiv = document.getElementById('newModal');
-//                var modalMessage = document.createElement('div');
-//                modalMessage.innerHTML = 'Thats username is already taken, please create a unique username';
-//                var modalButton = document.createElement('button');
-//                modalButton.innerHTML = 'Submit';
-//                newModalDiv.appendChild(modalMessage);
-//                newModalDiv.appendChild(modalButton);
-//                showModal();
-                
-                console.log('This user id is already taken, you must create a unique id.');
+                modalMessage.innerHTML = "This user id is already taken, you must create a unique id.";
+                modal.style.display = "block";
               }else{
                 var player = new Player(name, 0, 0, 0);
                 players.push(player);
@@ -85,11 +71,43 @@ function newPlayer (name){
                console.log(name);
          }
   }else{
-    console.log('numbers and letters only');
+    modalMessage.innerHTML = "Letters and numbers only here!";
+    modal.style.display = "block";
   }
 }
 
-Player('Stephan');
+
+///// Returning player function
+const returnName = document.getElementById('returnName');
+const returningPlayerBtn = document.getElementById('returnPlayerBtn');
+
+function returningPlayer (name) {
+  if(JSON.parse(window.localStorage.getItem('players')) === null){
+    modalMessage.innerHTML = "There are no exsisting players. Please create a unique id.";
+    modal.style.display = "block";
+  } else {
+    
+    players = JSON.parse(window.localStorage.getItem('players'));
+    //var to store return input
+    const returnName = name;
+    
+    //looks for returning player
+    function isPlayer(player) {
+        return player.name === returnName;
+        console.log(returnName);
+    }
+    var returnPlayer = players.find(isPlayer);
+
+    //do stuff with returning player info
+    console.log(returnPlayer);
+  }
+}
+
+returningPlayerBtn.onclick = function() {
+  returningPlayer(returnName.value);
+}
+
+//Player('Stephan');
 //newPlayer('The Kid');
 
 //var to store return input
@@ -110,12 +128,6 @@ function isPlayer(player) {
 
 //retrieve player
 // var player1 = JSON.parse(window.localStorage.getItem('player1'));
-//
-
-newPlayerSubmit.addEventListener("click", () => {
-  newPlayer(newPlayerInput.value); //creates new player with scores set at 0
-
-});
 
 
 function updateMathScore (name){
@@ -135,33 +147,6 @@ function updateMathScore (name){
 //console.log(players[0]);
 
 
-///  display modal in response to user input
-const correctResponse = document.getElementById('correctResponse');
-const incorrectResponse = document.getElementById('incorrectResponse');
-//const modal = document.getElementById('modal');
-const modalResponse = document.getElementById('modalResponse');
-
-function showModal() {
-  modal.classList.add('active');
-  overlay.classList.add('active');
-}
-
-//modalButton.addEventListener("click", () => {
-//  correctModal.classList.remove('active');
-//});
-
-//correctContinueButton.addEventListener("click", () => {
-//  correctModal.classList.remove('active');
-//  overlay.classList.remove('active');
-////  ans.focus();
-//});
-//
-//incorrectContinueButton.addEventListener("click", () => {
-//  incorrectModal.classList.remove('active');
-//  overlay.classList.remove('active');
-////  ans.focus();
-//});
-
 
 /// widget button display controls
 
@@ -177,12 +162,6 @@ const sightWordsBtn = document.getElementById('sightWordsBtn');
 const sightWordsContainer = document.getElementById('sightWordsDiv');
 
 const logoutBtn = document.getElementById('logoutBtn');
-
-//const widgetControl = document.getElementById('widgetControl');
-//const widgetBtns = widgetControl.getElementsByClassName('btn');
-//
-//const widgetContainer = document.getElementById('widgetContainer');
-//const widgets = widgetContainer.getElementsByClassName('widget');
 
 for (var i = 0; i < widgetBtns.length; i++) {
   widgetBtns[i].addEventListener("click", function() {
@@ -262,8 +241,7 @@ var modalMessage = document.getElementById('modalMessage');
 
 // When the user clicks the button, open the modal 
 newPlayerSubmit.onclick = function() {
-  modal.style.display = "block";
-  modalMessage.innerHTML = "Player already Exsists";
+  newPlayer(newPlayerInput.value);
 }
 
 // When the user clicks on <span> (x), close the modal
