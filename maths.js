@@ -70,35 +70,31 @@ function setEquation(difficulty, operator){
         solution = number1 * number2;
         break;
       case '/':
-      //To Do: Insure neither number can be zero and answer is whole number
       if(number2 > number1){
           var numSwitch = number2;
           number2 = number1;
           number1 = numSwitch;
+          if(number1 % number2 === 0){
+            num1.innerHTML = number1;
+            num2.innerHTML = number2;
+            solution = number1 / number2;
+            break;
+          } else {
+            setEquation(activeDiff, activeOp);
+            break;
+          }
+      }
+      else{
+          if(number1 % number2 === 0){
           num1.innerHTML = number1;
           num2.innerHTML = number2;
-//          solution = number1 - number2;
+          solution = number1 / number2;
           break;
-        }else if (number1 === number2){
-          number1 += 1;
-          num1.innerHTML = number1;
-          num2.innerHTML = number2;
-          solution = number1 - number2;
-          break;
-        }else {
-          num1.innerHTML = number1;
-          num2.innerHTML = number2;
-          solution = number1 - number2;
+        } else {
+          setEquation(activeDiff, activeOp);
           break;
         }
-//        var diff = difficulty/3;
-//        number1 = Math.round(Math.random()*diff)+1;
-//      console.log(diff);
-//        number2 = Math.round(Math.random()*diff)+1;
-//        num1.innerHTML = number1;
-//        num2.innerHTML = number2;
-//        solution = number1 / number2;
-//        break;
+      }
   }
   answerLength = Math.log(solution) * Math.LOG10E + 1 | 0;
   ans.maxLength = answerLength;
