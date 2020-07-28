@@ -34,24 +34,71 @@ function setEquation(difficulty, operator){
   var number2 = Math.round(Math.random()*difficulty);
 
   oper.innerHTML = operator;
-  num1.innerHTML = number1;
-  num2.innerHTML = number2;
+//  num1.innerHTML = number1;
+//  num2.innerHTML = number2;
 
   switch (operator) {
       case '+':
+        num1.innerHTML = number1;
+        num2.innerHTML = number2;
         solution = number1 + number2;
         break;
       case '-':
-      //To Do: Insure result can never be a negative number
-        solution = number1 - number2;
-        break;
+        if(number2 > number1){
+          var numSwitch = number2;
+          number2 = number1;
+          number1 = numSwitch;
+          num1.innerHTML = number1;
+          num2.innerHTML = number2;
+          solution = number1 - number2;
+          break;
+        }else if (number1 === number2){
+          number1 += 1;
+          num1.innerHTML = number1;
+          num2.innerHTML = number2;
+          solution = number1 - number2;
+          break;
+        }else {
+          num1.innerHTML = number1;
+          num2.innerHTML = number2;
+          solution = number1 - number2;
+          break;
+        }
       case '*':
+        num1.innerHTML = number1;
+        num2.innerHTML = number2;
         solution = number1 * number2;
         break;
       case '/':
       //To Do: Insure neither number can be zero and answer is whole number
-        solution = number1 / number2;
-        break;
+      if(number2 > number1){
+          var numSwitch = number2;
+          number2 = number1;
+          number1 = numSwitch;
+          num1.innerHTML = number1;
+          num2.innerHTML = number2;
+//          solution = number1 - number2;
+          break;
+        }else if (number1 === number2){
+          number1 += 1;
+          num1.innerHTML = number1;
+          num2.innerHTML = number2;
+          solution = number1 - number2;
+          break;
+        }else {
+          num1.innerHTML = number1;
+          num2.innerHTML = number2;
+          solution = number1 - number2;
+          break;
+        }
+//        var diff = difficulty/3;
+//        number1 = Math.round(Math.random()*diff)+1;
+//      console.log(diff);
+//        number2 = Math.round(Math.random()*diff)+1;
+//        num1.innerHTML = number1;
+//        num2.innerHTML = number2;
+//        solution = number1 / number2;
+//        break;
   }
   answerLength = Math.log(solution) * Math.LOG10E + 1 | 0;
   ans.maxLength = answerLength;
@@ -99,16 +146,6 @@ for (var i = 0; i < btns.length; i++) {
     ans.focus();
   });
 }
-
-
-//Allows user to press enter to input math answer ((Cna't get this to stop firing))
-//ans.addEventListener("keyup", (e)=> {
-//  if (e.keyCode === 13) {
-//    e.preventDefault();
-//    document.getElementById("go").click();
-//  }
-//});
-
 
 
 // Checks answer against solution onclick of go button

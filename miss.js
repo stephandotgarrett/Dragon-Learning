@@ -6,20 +6,30 @@ const threeLetImgs = ['hat.svg', 'cat.svg', 'dog.svg', 'sun.svg', 'pig.svg', 'co
 var answer;
 
 
-
+//Get word from list of words and display the letters
 function createWord () {
+  //holds random number
   var wordIndex;
+  //holds word from word array
   var wordChoice = '';
-  var imgs = [];
+  //holds the letter to be removed from word
   var letterToRemove;
+  //holds the character array created from the word
   var wordArray = [];
+  //create random number for word array index used to pick a word
   wordIndex = Math.round(Math.random()*(threeLetWords.length-1));
+  //pick word from threeLetWords array
   wordChoice = threeLetWords[wordIndex];
+  //pick a letter to remove from word
   letterToRemove = Math.round(Math.random()*(wordChoice.length-1));
+  //create img element to display image
   var img = document.createElement("img");
+  //chooses image associated with the word chosen
   img.src = 'svg/' + threeLetImgs[wordIndex];
+  //set img size
   img.style.height = '80%';
   img.style.width = '80%';
+  //set img into imgDiv
   var picture = document.getElementById('imgDiv');
   picture.appendChild(img);
 
@@ -40,12 +50,12 @@ function createWord () {
     }
   }
   answer = wordArray[letterToRemove];
-//  input.focus();
 }
 
 
 
 createWord();
+
 
 const modalButton = document.getElementById('modalButton');
 ///  evaluates user input, removes word and creates new word if answer is correct, clears input and returns to word if user input is incorrect
@@ -68,21 +78,10 @@ checkAnswer.addEventListener("click", () =>{
   }
 });
 
-
+//clears exsisting word display to prep for new word display
 function removeAllChildNodes(parent) {
     while (parent.firstChild) {
         parent.removeChild(parent.firstChild);
     }
 }
 
-
-
-// <div class="modal-correct" id="correctModal">
-//                <div id="correctResponse"></div>
-//                <button id="correctContinueButton">Continue</button>
-//              </div>
-//
-//              <div class="modal-incorrect" id="incorrectModal">
-//                <div id="incorrectResponse"></div>
-//                <button id="incorrectContinueButton">Continue</button>
-//              </div>

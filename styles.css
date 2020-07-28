@@ -1,8 +1,39 @@
 /*   CSS page styling will go here!   */
 
+                                                /*General Styles*/
+
 * {
   padding: 2px;
 }
+/*
+html, body {
+  height: 100vh;
+}
+*/
+
+body {
+   padding-left: 10%;
+   padding-right: 10%;
+  background-image: url("dragon.png");
+   background-size: cover;
+   color: white;
+   height: 100vh;
+}
+
+
+
+div, span, button {
+  padding: 4px;
+}
+
+span, input {
+  text-align: center;
+  font-size: 25px;
+  height: 50px;
+  width: 50px;
+}
+
+
 #pageTitle {
   font-family: 'Skranji', cursive;
   color: grey;
@@ -47,22 +78,85 @@
   align-self: center;
 }
 
-.wordS {
-  margin-left: 100px;
+
+                                                /*Widget Space Styles*/
+#widgetSpace {
+  min-height: 600px;
+  width: 1000px;
+  /* margin-left: 10%; */
 }
 
-.letter {
-  padding: 10px;
+#widgetContainer {
+  width: 750px;
+/*  background-color: red;*/
+  /* background-color: rgba(120, 120, 120, .7); */
+  border: solid $b rgba(#000, .2);
+  border-radius: 40px;
+/*  box-shadow: 25px 25px 50px rgba(0, 0, 0, 0.5) inset;*/
+  background: rgb(71,67,68);
+  background: radial-gradient(circle, rgba(71,67,68,0.802) 8%, rgba(140,178,226,0.1) 91%);
 }
 
-html, body {
-  height: 100vh;
+.widgetBtn {
+  box-shadow: 6px 14px 14px -4px #423e3e;
+	background:linear-gradient(to bottom, #423e3e 5%, #423e3e 100%);
+	background-color:#423e3e;
+	border-radius:8px;
+	border:1px solid #423e3e;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family: 'Skranji', cursive;
+	font-size:15px;
+/*	font-weight:bold;*/
+	padding:10px 30px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #423e3e;
+}
+
+.widgetBtn:active {
+	position:relative;
+	top:1px;
+}
+
+
+                                              /*Missing Letter Styles*/
+#missingLetterDiv {
+  width: 100%;
+}
+
+#missingLetterContainer{
+  width: 50%;
+  height: 60%;
 }
 
 #contentContainer {
   width: 100%;
 }
 
+#checkAnswerDiv{
+  margin-top: 30px;
+}
+
+.letter {
+  font-family: 'Skranji', cursive;
+  font-size: 40px;
+  padding: 20px;
+}
+
+#input {
+  margin: 25px;
+  padding:8px;
+  font-size:40px;
+  border-radius:10px;
+  border-color:#695352;
+  color:#393736;
+  background-color:#f3f2e7;
+  border-style:outset;
+  border-width:2px;
+  font-style:none;
+  font-family: 'Skranji', cursive;
+}
 
 #imgDiv {
   height: 350px;
@@ -73,42 +167,33 @@ img {
   margin: 10%;
 }
 
-#missingLetterDiv {
-  width: 100%;
+#checkAnswer {
+  box-shadow: 6px 14px 14px -4px #423e3e;
+	background:linear-gradient(to bottom, #dbb966 5%, #dbb966 100%);
+	background-color:#dbb966;
+	border-radius:8px;
+	border:1px solid #dbb966;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family: 'Skranji', cursive;
+	font-size:15px;
+/*	font-weight:bold;*/
+	padding:10px 30px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #dbb966;
 }
 
-#missingLetterContainer{
-  width: 50%;
-  height: 60%;
-}
 
-#checkAnswerDiv{
-  margin-top: 30px;
-}
+
+
+                                              /*Math Styles*/
 
 #operatorDiv {
   display: inline-block;
 }
 
-#checkAnswer {
-	box-shadow: 0px 10px 14px -7px #caefab;
-	background:linear-gradient(to bottom, #77d42a 5%, #5cb811 100%);
-	background-color:#77d42a;
-	border-radius:8px;
-	display:inline-block;
-	cursor:pointer;
-	color:#306108;
-	font-family:Arial;
-	font-size:20px;
-	font-weight:bold;
-	padding:13px 32px;
-	text-decoration:none;
-	text-shadow:0px 1px 0px #aade7c;
-}
-
-
-
-#input, #answer {
+#answer {
   padding:8px;
   font-size:16px;
   border-radius:10px;
@@ -121,48 +206,21 @@ img {
   font-family: 'Skranji', cursive;
 }
 
-body {
-   padding-left: 10%;
-   padding-right: 10%;
-  background-image: url("dragon.png");
-/*
-   background:
-       radial-gradient(
-         rgba(35,37,38, 0.05),
-         rgba(65,67,68, 0.05)
-     ), url("dragon.png") no-repeat center center;
-*/
-   background-size: cover;
-   color: white;
-   height: 100vh;
-   /* box-shadow: inset 0px 0px 20px 0px rgba(0,0,0,1); */
-}
-
-#widgetSpace {
-  min-height: 600px;
-  width: 1000px;
-  /* margin-left: 10%; */
-}
-
-#widgetContainer {
-  width: 750px;
-/*  background-color: red;*/
-  /* background-color: rgba(120, 120, 120, .7); */
-  border-radius: 25px;
-  box-shadow: 25px 25px 50px rgba(0, 0, 0, 0.5) inset;
-  background: rgb(0,0,4);
-  background: radial-gradient(circle, rgba(0,0,4,1) 32%, rgba(77,167,227,0.9542191876750701) 68%, rgba(144,203,246,0.6573004201680672) 100%);
-}
-
-div, span, button {
-  padding: 4px;
-}
-
-span, input {
-  text-align: center;
-  font-size: 25px;
-  height: 50px;
-  width: 50px;
+.numBtn {
+  box-shadow: 6px 14px 14px -4px #423e3e;
+	background:linear-gradient(to bottom, #dbb966 5%, #dbb966 100%);
+	background-color:#dbb966;
+	border-radius:8px;
+	border:1px solid #dbb966;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family: 'Skranji', cursive;
+	font-size:15px;
+/*	font-weight:bold;*/
+	padding:10px 30px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #dbb966;
 }
 
 #go {
@@ -170,12 +228,20 @@ span, input {
   height: 40px;
 }
 
+
+
+
+
+
+/*Sight Words Styles, In Progress*/
 #sightWordsDiv {
   font-family: 'Skranji', cursive;
   font-size: 100px;
   padding-top: 26%;
 }
 
+
+                                          /*Modal Styles*/
 /* The Modal (background) */
 .modal {
   display: none; /* Hidden by default */
