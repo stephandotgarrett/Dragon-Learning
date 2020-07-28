@@ -34,9 +34,8 @@ function setEquation(difficulty, operator){
   var number2 = Math.round(Math.random()*difficulty);
 
   oper.innerHTML = operator;
-//  num1.innerHTML = number1;
-//  num2.innerHTML = number2;
 
+  //evaluate and prepare math equations
   switch (operator) {
       case '+':
         num1.innerHTML = number1;
