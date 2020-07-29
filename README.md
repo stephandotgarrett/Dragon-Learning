@@ -12,6 +12,6 @@ On occasion a warning will appear in the console about two elements having the s
 Future Plans:
  - Sight words app: Will show image and display some number of words bellow the image. The object would be to select the correct word that corresponds to the image. 
  - Allow user to select an icon to go with their username.
- - Display the current date as a digital clock and an analog clock to learn how clocks work.
+ - Display the current date as an analog clock to learn how clocks work.
  - Use current time to save the date a user profile was created and display number of days since joining.
  
