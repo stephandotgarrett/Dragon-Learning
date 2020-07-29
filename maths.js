@@ -154,7 +154,6 @@ goBtn.addEventListener("click", function (){
       currentPlayer.mathPoints += 1;
       localStorage.setItem('players', JSON.stringify(players));
       displayPoints(currentPlayer);
-      console.log(currentPlayer);
       setPageState(operatorBtns, difficultyBtns);
     } else {
       modalMessage.innerHTML = "Try again!";

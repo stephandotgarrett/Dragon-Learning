@@ -78,6 +78,14 @@ span, input {
   align-self: center;
 }
 
+.topDisplay {
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+#clock {
+  margin-left: 50px;
+}
 
                                                 /*Widget Space Styles*/
 #widgetSpace {

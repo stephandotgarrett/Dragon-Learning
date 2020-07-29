@@ -57,7 +57,6 @@ function displayPoints (player){
 
 //creates new player
 function newPlayer (name){
-  console.log(typeof(name));
   var nameREGX = /^[A-Za-z0-9]+$/;
   if(name ===  ""){
     modalMessage.innerHTML = "Please create a username";
@@ -124,7 +123,6 @@ function returningPlayer (name) {
       modal.style.display = "block";
     }else{
       currentPlayer = returnPlayer;
-      console.log(returnPlayer);
       welcome.innerHTML = `Welcome ${currentPlayer.name}!`
       displayPoints(currentPlayer);
       displayWidgets();
@@ -241,3 +239,31 @@ window.onclick = function(event) {
     modal.style.display = "none";
   }
 }
+
+
+////Clock /////
+
+function currentTime() {
+  var date = new Date(); /* creating object of Date class */
+  var hour = date.getHours();
+  var min = date.getMinutes();
+  var ampm = date.getHours() >= 12 ? 'pm' : 'am';
+  var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  var days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  hour = updateTime(hour);
+  min = updateTime(min);
+//  sec = updateTime(sec);
+  document.getElementById("clock").innerText = days[date.getDay()] + ' ' + months[date.getMonth()] + ' ' + date.getDate() + ' ' + date.getFullYear() + ' ' + hour + ' : ' + min ; /* adding time to the div */
+    var t = setTimeout(function(){ currentTime() }, 1000); /* setting timer */
+}
+
+function updateTime(k) {
+  if (k < 10) {
+    return "0" + k;
+  }
+  else {
+    return k;
+  }
+}
+
+currentTime(); /* calling currentTime() function to initiate the process */

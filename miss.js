@@ -46,7 +46,6 @@ function createWord () {
       newP.classList.add('letter');
       wordDiv.appendChild(newP);
     } else {
-      console.log(wordArray[letterToRemove]);
     }
   }
   answer = wordArray[letterToRemove];
