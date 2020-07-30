@@ -17,11 +17,12 @@ const widgets = widgetContainer.getElementsByClassName('widget');
 const widgetSpace = document.getElementById('widgetSpace');
 
 //new player contructor
-function Player (name, mathPoints, mLPoints, sWPoints) {
+function Player (name, mathPoints, mLPoints, sWPoints, joinDate) {
  this.name = name;
  this.mathPoints = mathPoints;
  this.mLPoints = mLPoints;
  this.sWPoints = sWPoints;
+ this.joinDate = joinDate;
 }
 
 //array to store player info
@@ -74,21 +75,29 @@ function newPlayer (name){
                 modalMessage.innerHTML = "This user id is already taken, you must create a unique id.";
                 modal.style.display = "block";
               }else{
-                var player = new Player(name, 0, 0, 0);
+                var today = new Date();
+                var date = (today.getMonth()+1)+'/'+today.getDate()+'/'+today.getFullYear();
+                var player = new Player(name, 0, 0, 0, date);
                 players.push(player);
                 localStorage.setItem('players', JSON.stringify(players));
                 currentPlayer = player;
+                var numDays = getDaysBetween(currentPlayer.joinDate);
                 displayWidgets();
                 welcome.innerHTML = `Welcome ${currentPlayer.name}!`
+                daysSinceJoin.innerHTML = `You've been a user for ${numDays + 1} days!`;
                 displayPoints(currentPlayer);
               }
          }else{
-               var player = new Player(name, 0, 0, 0);
+               var today = new Date();
+               var date = (today.getMonth()+1)+'/'+today.getDate()+'/'+today.getFullYear();
+               var player = new Player(name, 0, 0, 0, date);
                players.push(player);
                localStorage.setItem('players', JSON.stringify(players));
                currentPlayer = player;
+               var numDays = getDaysBetween(currentPlayer.joinDate);
                displayWidgets();
                welcome.innerHTML = `Welcome ${currentPlayer.name}!`
+               daysSinceJoin.innerHTML = `You've been a user for ${numDays + 1} days!`;
                displayPoints(currentPlayer);
          }
   }else{
@@ -111,19 +120,19 @@ function returningPlayer (name) {
 
     //var to store return input
     var returnName = name;
-
+    
     //looks for returning player
-    function isPlayer(player) {
-        return player.name === returnName;
-    }
-    var returnPlayer = players.find(isPlayer);
+    var returnPlayer = players.find(player => player.name === returnName);
 
     if (returnPlayer === undefined){
       modalMessage.innerHTML = "That user id doesn't exsist. Please create a unique id.";
       modal.style.display = "block";
     }else{
       currentPlayer = returnPlayer;
+      var numDays = getDaysBetween(currentPlayer.joinDate);
+      console.log(currentPlayer.joinDate);
       welcome.innerHTML = `Welcome ${currentPlayer.name}!`
+      daysSinceJoin.innerHTML = `You've been a user for ${numDays + 1} days!`;
       displayPoints(currentPlayer);
       displayWidgets();
     }
@@ -241,18 +250,17 @@ window.onclick = function(event) {
 }
 
 
-////Clock /////
+////Clock and Dates/////
 
 function currentTime() {
   var date = new Date(); /* creating object of Date class */
   var hour = date.getHours();
   var min = date.getMinutes();
   var ampm = date.getHours() >= 12 ? 'pm' : 'am';
-  var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-  var days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  var months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+  var days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
   hour = updateTime(hour);
   min = updateTime(min);
-//  sec = updateTime(sec);
   document.getElementById("clock").innerText = days[date.getDay()] + ' ' + months[date.getMonth()] + ' ' + date.getDate() + ' ' + date.getFullYear() + ' ' + hour + ' : ' + min ; /* adding time to the div */
     var t = setTimeout(function(){ currentTime() }, 1000); /* setting timer */
 }
@@ -267,3 +275,12 @@ function updateTime(k) {
 }
 
 currentTime(); /* calling currentTime() function to initiate the process */
+
+
+// calculate the number of days since a user was created
+function getDaysBetween (joinDate) {
+  var today = new Date();
+  var dt1 = new Date(joinDate);
+  var days = Math.floor((today - dt1)/(1000 * 60 * 60 * 24));
+  return days;
+}
